@@ -1,0 +1,21 @@
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
+import './utils/firebase';
+import App from './App';
+import './index.css';
+
+import { LanguageProvider } from './contexts/LanguageContext';
+import { ProfileProvider } from './contexts/ProfileContext';
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <BrowserRouter>
+      <ProfileProvider>
+        <LanguageProvider>
+          <App />
+        </LanguageProvider>
+      </ProfileProvider>
+    </BrowserRouter>
+  </React.StrictMode>,
+);
