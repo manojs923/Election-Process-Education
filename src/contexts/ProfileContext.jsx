@@ -7,8 +7,8 @@ export const profileConfig = {
     banner: "Beginner's Guide",
     bannerColor: '#138808',
     quickPrompts: [
-      { intent: 'id', text: "What is a Voter ID?" },
-      { intent: 'booth', text: "What do I bring to vote?" },
+      { intent: 'voterId', text: "What is a Voter ID?" },
+      { intent: 'bring', text: "What do I bring to vote?" },
       { intent: 'booth', text: "Walk me through the booth" }
     ],
     geminiContext: `You are a friendly Voter Education Expert for India.
@@ -35,7 +35,7 @@ export const profileConfig = {
     banner: "Quick Reference Mode",
     bannerColor: '#0D1B3E',
     quickPrompts: [
-      { intent: 'timeline', text: "What changed since last election?" },
+      { intent: 'changes', text: "What changed since last election?" },
       { intent: 'evm', text: "New EVM rules?" },
       { intent: 'vvpat', text: "VVPAT process?" }
     ],
@@ -61,9 +61,9 @@ export const profileConfig = {
     banner: "Senior Citizen Priority Guide",
     bannerColor: '#FF9933',
     quickPrompts: [
-      { intent: 'booth', text: "Do I get priority at the booth?" },
-      { intent: 'booth', text: "Can I vote from home?" },
-      { intent: 'booth', text: "What help is available?" }
+      { intent: 'seniorPriority', text: "Do I get priority at the booth?" },
+      { intent: 'seniorHomeVoting', text: "Can I vote from home?" },
+      { intent: 'seniorHelp', text: "What help is available?" }
     ],
     geminiContext: `You are a warm and patient Voter Education Expert for India.
       The user is a SENIOR CITIZEN voter.
@@ -93,9 +93,9 @@ export const profileConfig = {
     banner: "Accessibility Services Guide",
     bannerColor: '#1e40af',
     quickPrompts: [
-      { intent: 'booth', text: "Is my booth wheelchair accessible?" },
-      { intent: 'booth', text: "Can someone help me vote?" },
-      { intent: 'evm', text: "What is Braille EVM?" }
+      { intent: 'accessibleBooth', text: "Is my booth wheelchair accessible?" },
+      { intent: 'accessibleCompanion', text: "Can someone help me vote?" },
+      { intent: 'accessibleBrailleEvm', text: "What is Braille EVM?" }
     ],
     geminiContext: `You are a helpful Voter Education Expert for India.
       The user NEEDS ACCESSIBILITY SUPPORT while voting.

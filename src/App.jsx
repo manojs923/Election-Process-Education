@@ -25,6 +25,10 @@ function loadProfile() {
 
 function getVoterTypeKey(profile) {
   if (profile?.voterTypeKey) return profile.voterTypeKey;
+  if (profile?.voterType === 'experienced') return 'experiencedVoter';
+  if (profile?.voterType === 'senior') return 'seniorCitizen';
+  if (profile?.voterType === 'accessible') return 'accessibilitySupport';
+  if (profile?.voterType === 'first-time') return 'firstTimeVoter';
   if (profile?.voterType === 'Experienced Voter') return 'experiencedVoter';
   if (profile?.voterType === 'Senior Citizen') return 'seniorCitizen';
   if (profile?.voterType === 'Needs Accessibility Support') return 'accessibilitySupport';
@@ -110,25 +114,22 @@ export default function App() {
 
       <main className="mx-auto w-full max-w-7xl px-4 pb-28 pt-8 md:px-6 md:pb-14">
         <Routes>
-          <Route path="/" element={<Navigate to="/entry" replace />} />
-          <Route
-            path="/entry"
-            element={<Entry userProfile={userProfile} onStart={setUserProfile} />}
-          />
+          <Route path="/" element={<Entry userProfile={userProfile} onStart={setUserProfile} />} />
+          <Route path="/entry" element={<Navigate to="/" replace />} />
           <Route
             path="/dashboard"
             element={
               userProfile ? (
-                <Dashboard userProfile={userProfile} onResetExperience={() => setUserProfile(null)} />
+                <Dashboard userProfile={userProfile} />
               ) : (
-                <Navigate to="/entry" replace />
+                <Navigate to="/" replace />
               )
             }
           />
-          <Route path="/assistant" element={userProfile ? <Dashboard tab="assistant" userProfile={userProfile} /> : <Navigate to="/entry" replace />} />
-          <Route path="/timeline" element={userProfile ? <Dashboard tab="timeline" userProfile={userProfile} /> : <Navigate to="/entry" replace />} />
-          <Route path="/map" element={userProfile ? <Dashboard tab="map" userProfile={userProfile} /> : <Navigate to="/entry" replace />} />
-          <Route path="/find-booth" element={userProfile ? <Dashboard tab="booth" userProfile={userProfile} /> : <Navigate to="/entry" replace />} />
+          <Route path="/assistant" element={userProfile ? <Dashboard tab="assistant" userProfile={userProfile} /> : <Navigate to="/" replace />} />
+          <Route path="/timeline" element={userProfile ? <Dashboard tab="timeline" userProfile={userProfile} /> : <Navigate to="/" replace />} />
+          <Route path="/map" element={userProfile ? <Dashboard tab="map" userProfile={userProfile} /> : <Navigate to="/" replace />} />
+          <Route path="/find-booth" element={userProfile ? <Dashboard tab="booth" userProfile={userProfile} /> : <Navigate to="/" replace />} />
         </Routes>
       </main>
     </div>

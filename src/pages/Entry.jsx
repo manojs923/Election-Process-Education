@@ -30,7 +30,11 @@ export default function Entry({ userProfile, onStart }) {
     setVoterProfile(contextProfile);
     console.log('VOTER PROFILE SET TO:', contextProfile);
 
-    onStart({ voterType, voterTypeKey: selectedType?.key || 'firstTimeVoter', language });
+    onStart({
+      voterType: selectedType?.typeId || 'first-time',
+      voterTypeKey: selectedType?.key || 'firstTimeVoter',
+      language,
+    });
     navigate('/dashboard');
   };
 

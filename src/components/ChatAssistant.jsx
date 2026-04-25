@@ -81,7 +81,7 @@ export default function ChatAssistant({ isFullScreen = true }) {
           </p>
         </div>
         <div className="rounded-full bg-indiaGreen/10 border border-indiaGreen/20 px-4 py-2 text-sm font-bold uppercase tracking-widest text-indiaGreen shadow-sm">
-          Gemini 2.0 Flash
+          Gemini 2.5 Flash
         </div>
       </div>
 
