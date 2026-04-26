@@ -3,6 +3,7 @@ import { MemoryRouter } from 'react-router-dom';
 import App from '../App';
 import { describe, it, expect, vi } from 'vitest';
 import { LanguageProvider } from '../contexts/LanguageContext';
+import { ProfileProvider } from '../contexts/ProfileContext';
 
 vi.mock('../utils/demoState', () => ({
   useDemoState: () => [{ phase: 'Pre-Match', isEmergency: false }, vi.fn()],
@@ -15,22 +16,26 @@ vi.mock('../utils/demoState', () => ({
 describe('App Component', () => {
   it('renders the header correctly', () => {
     render(
-      <LanguageProvider>
-        <MemoryRouter>
-          <App />
-        </MemoryRouter>
-      </LanguageProvider>
+      <ProfileProvider>
+        <LanguageProvider>
+          <MemoryRouter>
+            <App />
+          </MemoryRouter>
+        </LanguageProvider>
+      </ProfileProvider>
     );
     expect(screen.getByText('Voter Education AI')).toBeInTheDocument();
   });
 
   it('renders the main navigation links', () => {
     render(
-      <LanguageProvider>
-        <MemoryRouter>
-          <App />
-        </MemoryRouter>
-      </LanguageProvider>
+      <ProfileProvider>
+        <LanguageProvider>
+          <MemoryRouter>
+            <App />
+          </MemoryRouter>
+        </LanguageProvider>
+      </ProfileProvider>
     );
     expect(screen.getByText('Dashboard')).toBeInTheDocument();
     expect(screen.getByText('AI Assistant')).toBeInTheDocument();

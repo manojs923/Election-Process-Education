@@ -48,7 +48,7 @@ export default function Entry({ userProfile, onStart }) {
           <h1 className="font-display text-5xl md:text-6xl font-bold leading-none text-navy">
             Voter Education Assistant
           </h1>
-          <p className="mt-6 text-lg leading-relaxed text-navy/70 font-medium">
+          <p className="mt-6 text-lg leading-relaxed text-navy/90 font-medium">
             Learn about the election process, required documents, polling booth steps, and your rights as a voter in an interactive way.
           </p>
           <div className="mt-8 space-y-4">
@@ -70,15 +70,15 @@ export default function Entry({ userProfile, onStart }) {
         <div className="rounded-[2xl] bg-white p-8 md:p-10 shadow-glow border border-navy/5">
           <form onSubmit={handleSubmit} className="space-y-8">
             <div>
-              <h2 className="text-xl font-bold text-navy mb-4">Select Voter Profile</h2>
-              <div className="grid grid-cols-1 gap-3">
+              <h2 id="voter-profile-heading" className="text-xl font-bold text-navy mb-4">Select Voter Profile</h2>
+              <div role="group" aria-labelledby="voter-profile-heading" className="grid grid-cols-1 gap-3">
                 {voterTypes.map((type) => (
                   <label
                     key={type.value}
                     className={`cursor-pointer rounded-xl border p-4 text-left transition-all flex flex-col ${
                       voterType === type.value
                         ? 'border-saffron bg-saffron/10 text-navy font-bold shadow-sm'
-                        : 'border-navy/10 hover:border-navy/30 text-navy/70'
+                        : 'border-navy/10 hover:border-navy/30 text-navy/90'
                     }`}
                   >
                     <input
@@ -97,15 +97,15 @@ export default function Entry({ userProfile, onStart }) {
             </div>
 
             <div>
-              <h2 className="text-xl font-bold text-navy mb-4">Preferred Language</h2>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+              <h2 id="language-heading" className="text-xl font-bold text-navy mb-4">Preferred Language</h2>
+              <div role="group" aria-labelledby="language-heading" className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                 {languages.map((lang) => (
                   <label
                     key={lang}
                     className={`cursor-pointer rounded-xl border p-3 text-center transition-all ${
                       language === lang
                         ? 'border-indiaGreen bg-indiaGreen/10 text-navy font-bold shadow-sm'
-                        : 'border-navy/10 hover:border-navy/30 text-navy/70'
+                        : 'border-navy/10 hover:border-navy/30 text-navy/90'
                     }`}
                   >
                     <input

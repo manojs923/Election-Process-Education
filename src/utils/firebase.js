@@ -2,6 +2,7 @@ import { initializeApp } from 'firebase/app';
 import { getAnalytics, logEvent } from 'firebase/analytics';
 import { getAuth, signInAnonymously } from 'firebase/auth';
 import { getFirestore, doc, setDoc, getDoc } from 'firebase/firestore';
+import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
@@ -17,6 +18,7 @@ let app = null;
 let analytics = null;
 let auth = null;
 let db = null;
+let storage = null;
 
 // Only initialize if we have the minimum required config so the local demo doesn't crash
 if (firebaseConfig.apiKey && firebaseConfig.apiKey !== 'demo_key') {
@@ -36,8 +38,11 @@ if (firebaseConfig.apiKey && firebaseConfig.apiKey !== 'demo_key') {
     // Initialize Firestore for user state persistence
     db = getFirestore(app);
     
-    console.log('Firebase Services Initialized (Auth, Analytics, Firestore)');
-    console.info("Firestore + Auth + Analytics initialized");
+    // Initialize Storage
+    storage = getStorage(app);
+    
+    console.log('Firebase Services Initialized (Auth, Analytics, Firestore, Storage)');
+    console.info("Firestore + Auth + Analytics + Storage initialized");
   } catch (err) {
     console.error('Firebase initialization error', err);
   }
@@ -111,4 +116,18 @@ export const saveChatHistory = async (messages) => {
   }
 };
 
-export { app, analytics, auth, db };
+export const uploadAvatar = async (userId, file) => {
+  if (storage && userId) {
+    try {
+      const storageRef = ref(storage, `avatars/${userId}`);
+      await uploadBytes(storageRef, file);
+      return await getDownloadURL(storageRef);
+    } catch (error) {
+      console.warn("Firebase storage upload failed.", error);
+      return null;
+    }
+  }
+  return null;
+};
+
+export { app, analytics, auth, db, storage };

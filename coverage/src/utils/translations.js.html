@@ -1,0 +1,1882 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Code coverage report for src/utils/translations.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../../favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+    
+<body>
+<div class='wrapper'>
+    <div class='pad1'>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/utils</a> translations.js</h1>
+        <div class='clearfix'>
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">93.33% </span>
+                <span class="quiet">Statements</span>
+                <span class='fraction'>14/15</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">50% </span>
+                <span class="quiet">Branches</span>
+                <span class='fraction'>2/4</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">66.66% </span>
+                <span class="quiet">Functions</span>
+                <span class='fraction'>2/3</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">93.33% </span>
+                <span class="quiet">Lines</span>
+                <span class='fraction'>14/15</span>
+            </div>
+        
+            
+        </div>
+        <p class="quiet">
+            Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
+        </p>
+        <template id="filterTemplate">
+            <div class="quiet">
+                Filter:
+                <input type="search" id="fileSearch">
+            </div>
+        </template>
+    </div>
+    <div class='status-line high'></div>
+    <pre><table class="coverage">
+<tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
+<a name='L2'></a><a href='#L2'>2</a>
+<a name='L3'></a><a href='#L3'>3</a>
+<a name='L4'></a><a href='#L4'>4</a>
+<a name='L5'></a><a href='#L5'>5</a>
+<a name='L6'></a><a href='#L6'>6</a>
+<a name='L7'></a><a href='#L7'>7</a>
+<a name='L8'></a><a href='#L8'>8</a>
+<a name='L9'></a><a href='#L9'>9</a>
+<a name='L10'></a><a href='#L10'>10</a>
+<a name='L11'></a><a href='#L11'>11</a>
+<a name='L12'></a><a href='#L12'>12</a>
+<a name='L13'></a><a href='#L13'>13</a>
+<a name='L14'></a><a href='#L14'>14</a>
+<a name='L15'></a><a href='#L15'>15</a>
+<a name='L16'></a><a href='#L16'>16</a>
+<a name='L17'></a><a href='#L17'>17</a>
+<a name='L18'></a><a href='#L18'>18</a>
+<a name='L19'></a><a href='#L19'>19</a>
+<a name='L20'></a><a href='#L20'>20</a>
+<a name='L21'></a><a href='#L21'>21</a>
+<a name='L22'></a><a href='#L22'>22</a>
+<a name='L23'></a><a href='#L23'>23</a>
+<a name='L24'></a><a href='#L24'>24</a>
+<a name='L25'></a><a href='#L25'>25</a>
+<a name='L26'></a><a href='#L26'>26</a>
+<a name='L27'></a><a href='#L27'>27</a>
+<a name='L28'></a><a href='#L28'>28</a>
+<a name='L29'></a><a href='#L29'>29</a>
+<a name='L30'></a><a href='#L30'>30</a>
+<a name='L31'></a><a href='#L31'>31</a>
+<a name='L32'></a><a href='#L32'>32</a>
+<a name='L33'></a><a href='#L33'>33</a>
+<a name='L34'></a><a href='#L34'>34</a>
+<a name='L35'></a><a href='#L35'>35</a>
+<a name='L36'></a><a href='#L36'>36</a>
+<a name='L37'></a><a href='#L37'>37</a>
+<a name='L38'></a><a href='#L38'>38</a>
+<a name='L39'></a><a href='#L39'>39</a>
+<a name='L40'></a><a href='#L40'>40</a>
+<a name='L41'></a><a href='#L41'>41</a>
+<a name='L42'></a><a href='#L42'>42</a>
+<a name='L43'></a><a href='#L43'>43</a>
+<a name='L44'></a><a href='#L44'>44</a>
+<a name='L45'></a><a href='#L45'>45</a>
+<a name='L46'></a><a href='#L46'>46</a>
+<a name='L47'></a><a href='#L47'>47</a>
+<a name='L48'></a><a href='#L48'>48</a>
+<a name='L49'></a><a href='#L49'>49</a>
+<a name='L50'></a><a href='#L50'>50</a>
+<a name='L51'></a><a href='#L51'>51</a>
+<a name='L52'></a><a href='#L52'>52</a>
+<a name='L53'></a><a href='#L53'>53</a>
+<a name='L54'></a><a href='#L54'>54</a>
+<a name='L55'></a><a href='#L55'>55</a>
+<a name='L56'></a><a href='#L56'>56</a>
+<a name='L57'></a><a href='#L57'>57</a>
+<a name='L58'></a><a href='#L58'>58</a>
+<a name='L59'></a><a href='#L59'>59</a>
+<a name='L60'></a><a href='#L60'>60</a>
+<a name='L61'></a><a href='#L61'>61</a>
+<a name='L62'></a><a href='#L62'>62</a>
+<a name='L63'></a><a href='#L63'>63</a>
+<a name='L64'></a><a href='#L64'>64</a>
+<a name='L65'></a><a href='#L65'>65</a>
+<a name='L66'></a><a href='#L66'>66</a>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a>
+<a name='L69'></a><a href='#L69'>69</a>
+<a name='L70'></a><a href='#L70'>70</a>
+<a name='L71'></a><a href='#L71'>71</a>
+<a name='L72'></a><a href='#L72'>72</a>
+<a name='L73'></a><a href='#L73'>73</a>
+<a name='L74'></a><a href='#L74'>74</a>
+<a name='L75'></a><a href='#L75'>75</a>
+<a name='L76'></a><a href='#L76'>76</a>
+<a name='L77'></a><a href='#L77'>77</a>
+<a name='L78'></a><a href='#L78'>78</a>
+<a name='L79'></a><a href='#L79'>79</a>
+<a name='L80'></a><a href='#L80'>80</a>
+<a name='L81'></a><a href='#L81'>81</a>
+<a name='L82'></a><a href='#L82'>82</a>
+<a name='L83'></a><a href='#L83'>83</a>
+<a name='L84'></a><a href='#L84'>84</a>
+<a name='L85'></a><a href='#L85'>85</a>
+<a name='L86'></a><a href='#L86'>86</a>
+<a name='L87'></a><a href='#L87'>87</a>
+<a name='L88'></a><a href='#L88'>88</a>
+<a name='L89'></a><a href='#L89'>89</a>
+<a name='L90'></a><a href='#L90'>90</a>
+<a name='L91'></a><a href='#L91'>91</a>
+<a name='L92'></a><a href='#L92'>92</a>
+<a name='L93'></a><a href='#L93'>93</a>
+<a name='L94'></a><a href='#L94'>94</a>
+<a name='L95'></a><a href='#L95'>95</a>
+<a name='L96'></a><a href='#L96'>96</a>
+<a name='L97'></a><a href='#L97'>97</a>
+<a name='L98'></a><a href='#L98'>98</a>
+<a name='L99'></a><a href='#L99'>99</a>
+<a name='L100'></a><a href='#L100'>100</a>
+<a name='L101'></a><a href='#L101'>101</a>
+<a name='L102'></a><a href='#L102'>102</a>
+<a name='L103'></a><a href='#L103'>103</a>
+<a name='L104'></a><a href='#L104'>104</a>
+<a name='L105'></a><a href='#L105'>105</a>
+<a name='L106'></a><a href='#L106'>106</a>
+<a name='L107'></a><a href='#L107'>107</a>
+<a name='L108'></a><a href='#L108'>108</a>
+<a name='L109'></a><a href='#L109'>109</a>
+<a name='L110'></a><a href='#L110'>110</a>
+<a name='L111'></a><a href='#L111'>111</a>
+<a name='L112'></a><a href='#L112'>112</a>
+<a name='L113'></a><a href='#L113'>113</a>
+<a name='L114'></a><a href='#L114'>114</a>
+<a name='L115'></a><a href='#L115'>115</a>
+<a name='L116'></a><a href='#L116'>116</a>
+<a name='L117'></a><a href='#L117'>117</a>
+<a name='L118'></a><a href='#L118'>118</a>
+<a name='L119'></a><a href='#L119'>119</a>
+<a name='L120'></a><a href='#L120'>120</a>
+<a name='L121'></a><a href='#L121'>121</a>
+<a name='L122'></a><a href='#L122'>122</a>
+<a name='L123'></a><a href='#L123'>123</a>
+<a name='L124'></a><a href='#L124'>124</a>
+<a name='L125'></a><a href='#L125'>125</a>
+<a name='L126'></a><a href='#L126'>126</a>
+<a name='L127'></a><a href='#L127'>127</a>
+<a name='L128'></a><a href='#L128'>128</a>
+<a name='L129'></a><a href='#L129'>129</a>
+<a name='L130'></a><a href='#L130'>130</a>
+<a name='L131'></a><a href='#L131'>131</a>
+<a name='L132'></a><a href='#L132'>132</a>
+<a name='L133'></a><a href='#L133'>133</a>
+<a name='L134'></a><a href='#L134'>134</a>
+<a name='L135'></a><a href='#L135'>135</a>
+<a name='L136'></a><a href='#L136'>136</a>
+<a name='L137'></a><a href='#L137'>137</a>
+<a name='L138'></a><a href='#L138'>138</a>
+<a name='L139'></a><a href='#L139'>139</a>
+<a name='L140'></a><a href='#L140'>140</a>
+<a name='L141'></a><a href='#L141'>141</a>
+<a name='L142'></a><a href='#L142'>142</a>
+<a name='L143'></a><a href='#L143'>143</a>
+<a name='L144'></a><a href='#L144'>144</a>
+<a name='L145'></a><a href='#L145'>145</a>
+<a name='L146'></a><a href='#L146'>146</a>
+<a name='L147'></a><a href='#L147'>147</a>
+<a name='L148'></a><a href='#L148'>148</a>
+<a name='L149'></a><a href='#L149'>149</a>
+<a name='L150'></a><a href='#L150'>150</a>
+<a name='L151'></a><a href='#L151'>151</a>
+<a name='L152'></a><a href='#L152'>152</a>
+<a name='L153'></a><a href='#L153'>153</a>
+<a name='L154'></a><a href='#L154'>154</a>
+<a name='L155'></a><a href='#L155'>155</a>
+<a name='L156'></a><a href='#L156'>156</a>
+<a name='L157'></a><a href='#L157'>157</a>
+<a name='L158'></a><a href='#L158'>158</a>
+<a name='L159'></a><a href='#L159'>159</a>
+<a name='L160'></a><a href='#L160'>160</a>
+<a name='L161'></a><a href='#L161'>161</a>
+<a name='L162'></a><a href='#L162'>162</a>
+<a name='L163'></a><a href='#L163'>163</a>
+<a name='L164'></a><a href='#L164'>164</a>
+<a name='L165'></a><a href='#L165'>165</a>
+<a name='L166'></a><a href='#L166'>166</a>
+<a name='L167'></a><a href='#L167'>167</a>
+<a name='L168'></a><a href='#L168'>168</a>
+<a name='L169'></a><a href='#L169'>169</a>
+<a name='L170'></a><a href='#L170'>170</a>
+<a name='L171'></a><a href='#L171'>171</a>
+<a name='L172'></a><a href='#L172'>172</a>
+<a name='L173'></a><a href='#L173'>173</a>
+<a name='L174'></a><a href='#L174'>174</a>
+<a name='L175'></a><a href='#L175'>175</a>
+<a name='L176'></a><a href='#L176'>176</a>
+<a name='L177'></a><a href='#L177'>177</a>
+<a name='L178'></a><a href='#L178'>178</a>
+<a name='L179'></a><a href='#L179'>179</a>
+<a name='L180'></a><a href='#L180'>180</a>
+<a name='L181'></a><a href='#L181'>181</a>
+<a name='L182'></a><a href='#L182'>182</a>
+<a name='L183'></a><a href='#L183'>183</a>
+<a name='L184'></a><a href='#L184'>184</a>
+<a name='L185'></a><a href='#L185'>185</a>
+<a name='L186'></a><a href='#L186'>186</a>
+<a name='L187'></a><a href='#L187'>187</a>
+<a name='L188'></a><a href='#L188'>188</a>
+<a name='L189'></a><a href='#L189'>189</a>
+<a name='L190'></a><a href='#L190'>190</a>
+<a name='L191'></a><a href='#L191'>191</a>
+<a name='L192'></a><a href='#L192'>192</a>
+<a name='L193'></a><a href='#L193'>193</a>
+<a name='L194'></a><a href='#L194'>194</a>
+<a name='L195'></a><a href='#L195'>195</a>
+<a name='L196'></a><a href='#L196'>196</a>
+<a name='L197'></a><a href='#L197'>197</a>
+<a name='L198'></a><a href='#L198'>198</a>
+<a name='L199'></a><a href='#L199'>199</a>
+<a name='L200'></a><a href='#L200'>200</a>
+<a name='L201'></a><a href='#L201'>201</a>
+<a name='L202'></a><a href='#L202'>202</a>
+<a name='L203'></a><a href='#L203'>203</a>
+<a name='L204'></a><a href='#L204'>204</a>
+<a name='L205'></a><a href='#L205'>205</a>
+<a name='L206'></a><a href='#L206'>206</a>
+<a name='L207'></a><a href='#L207'>207</a>
+<a name='L208'></a><a href='#L208'>208</a>
+<a name='L209'></a><a href='#L209'>209</a>
+<a name='L210'></a><a href='#L210'>210</a>
+<a name='L211'></a><a href='#L211'>211</a>
+<a name='L212'></a><a href='#L212'>212</a>
+<a name='L213'></a><a href='#L213'>213</a>
+<a name='L214'></a><a href='#L214'>214</a>
+<a name='L215'></a><a href='#L215'>215</a>
+<a name='L216'></a><a href='#L216'>216</a>
+<a name='L217'></a><a href='#L217'>217</a>
+<a name='L218'></a><a href='#L218'>218</a>
+<a name='L219'></a><a href='#L219'>219</a>
+<a name='L220'></a><a href='#L220'>220</a>
+<a name='L221'></a><a href='#L221'>221</a>
+<a name='L222'></a><a href='#L222'>222</a>
+<a name='L223'></a><a href='#L223'>223</a>
+<a name='L224'></a><a href='#L224'>224</a>
+<a name='L225'></a><a href='#L225'>225</a>
+<a name='L226'></a><a href='#L226'>226</a>
+<a name='L227'></a><a href='#L227'>227</a>
+<a name='L228'></a><a href='#L228'>228</a>
+<a name='L229'></a><a href='#L229'>229</a>
+<a name='L230'></a><a href='#L230'>230</a>
+<a name='L231'></a><a href='#L231'>231</a>
+<a name='L232'></a><a href='#L232'>232</a>
+<a name='L233'></a><a href='#L233'>233</a>
+<a name='L234'></a><a href='#L234'>234</a>
+<a name='L235'></a><a href='#L235'>235</a>
+<a name='L236'></a><a href='#L236'>236</a>
+<a name='L237'></a><a href='#L237'>237</a>
+<a name='L238'></a><a href='#L238'>238</a>
+<a name='L239'></a><a href='#L239'>239</a>
+<a name='L240'></a><a href='#L240'>240</a>
+<a name='L241'></a><a href='#L241'>241</a>
+<a name='L242'></a><a href='#L242'>242</a>
+<a name='L243'></a><a href='#L243'>243</a>
+<a name='L244'></a><a href='#L244'>244</a>
+<a name='L245'></a><a href='#L245'>245</a>
+<a name='L246'></a><a href='#L246'>246</a>
+<a name='L247'></a><a href='#L247'>247</a>
+<a name='L248'></a><a href='#L248'>248</a>
+<a name='L249'></a><a href='#L249'>249</a>
+<a name='L250'></a><a href='#L250'>250</a>
+<a name='L251'></a><a href='#L251'>251</a>
+<a name='L252'></a><a href='#L252'>252</a>
+<a name='L253'></a><a href='#L253'>253</a>
+<a name='L254'></a><a href='#L254'>254</a>
+<a name='L255'></a><a href='#L255'>255</a>
+<a name='L256'></a><a href='#L256'>256</a>
+<a name='L257'></a><a href='#L257'>257</a>
+<a name='L258'></a><a href='#L258'>258</a>
+<a name='L259'></a><a href='#L259'>259</a>
+<a name='L260'></a><a href='#L260'>260</a>
+<a name='L261'></a><a href='#L261'>261</a>
+<a name='L262'></a><a href='#L262'>262</a>
+<a name='L263'></a><a href='#L263'>263</a>
+<a name='L264'></a><a href='#L264'>264</a>
+<a name='L265'></a><a href='#L265'>265</a>
+<a name='L266'></a><a href='#L266'>266</a>
+<a name='L267'></a><a href='#L267'>267</a>
+<a name='L268'></a><a href='#L268'>268</a>
+<a name='L269'></a><a href='#L269'>269</a>
+<a name='L270'></a><a href='#L270'>270</a>
+<a name='L271'></a><a href='#L271'>271</a>
+<a name='L272'></a><a href='#L272'>272</a>
+<a name='L273'></a><a href='#L273'>273</a>
+<a name='L274'></a><a href='#L274'>274</a>
+<a name='L275'></a><a href='#L275'>275</a>
+<a name='L276'></a><a href='#L276'>276</a>
+<a name='L277'></a><a href='#L277'>277</a>
+<a name='L278'></a><a href='#L278'>278</a>
+<a name='L279'></a><a href='#L279'>279</a>
+<a name='L280'></a><a href='#L280'>280</a>
+<a name='L281'></a><a href='#L281'>281</a>
+<a name='L282'></a><a href='#L282'>282</a>
+<a name='L283'></a><a href='#L283'>283</a>
+<a name='L284'></a><a href='#L284'>284</a>
+<a name='L285'></a><a href='#L285'>285</a>
+<a name='L286'></a><a href='#L286'>286</a>
+<a name='L287'></a><a href='#L287'>287</a>
+<a name='L288'></a><a href='#L288'>288</a>
+<a name='L289'></a><a href='#L289'>289</a>
+<a name='L290'></a><a href='#L290'>290</a>
+<a name='L291'></a><a href='#L291'>291</a>
+<a name='L292'></a><a href='#L292'>292</a>
+<a name='L293'></a><a href='#L293'>293</a>
+<a name='L294'></a><a href='#L294'>294</a>
+<a name='L295'></a><a href='#L295'>295</a>
+<a name='L296'></a><a href='#L296'>296</a>
+<a name='L297'></a><a href='#L297'>297</a>
+<a name='L298'></a><a href='#L298'>298</a>
+<a name='L299'></a><a href='#L299'>299</a>
+<a name='L300'></a><a href='#L300'>300</a>
+<a name='L301'></a><a href='#L301'>301</a>
+<a name='L302'></a><a href='#L302'>302</a>
+<a name='L303'></a><a href='#L303'>303</a>
+<a name='L304'></a><a href='#L304'>304</a>
+<a name='L305'></a><a href='#L305'>305</a>
+<a name='L306'></a><a href='#L306'>306</a>
+<a name='L307'></a><a href='#L307'>307</a>
+<a name='L308'></a><a href='#L308'>308</a>
+<a name='L309'></a><a href='#L309'>309</a>
+<a name='L310'></a><a href='#L310'>310</a>
+<a name='L311'></a><a href='#L311'>311</a>
+<a name='L312'></a><a href='#L312'>312</a>
+<a name='L313'></a><a href='#L313'>313</a>
+<a name='L314'></a><a href='#L314'>314</a>
+<a name='L315'></a><a href='#L315'>315</a>
+<a name='L316'></a><a href='#L316'>316</a>
+<a name='L317'></a><a href='#L317'>317</a>
+<a name='L318'></a><a href='#L318'>318</a>
+<a name='L319'></a><a href='#L319'>319</a>
+<a name='L320'></a><a href='#L320'>320</a>
+<a name='L321'></a><a href='#L321'>321</a>
+<a name='L322'></a><a href='#L322'>322</a>
+<a name='L323'></a><a href='#L323'>323</a>
+<a name='L324'></a><a href='#L324'>324</a>
+<a name='L325'></a><a href='#L325'>325</a>
+<a name='L326'></a><a href='#L326'>326</a>
+<a name='L327'></a><a href='#L327'>327</a>
+<a name='L328'></a><a href='#L328'>328</a>
+<a name='L329'></a><a href='#L329'>329</a>
+<a name='L330'></a><a href='#L330'>330</a>
+<a name='L331'></a><a href='#L331'>331</a>
+<a name='L332'></a><a href='#L332'>332</a>
+<a name='L333'></a><a href='#L333'>333</a>
+<a name='L334'></a><a href='#L334'>334</a>
+<a name='L335'></a><a href='#L335'>335</a>
+<a name='L336'></a><a href='#L336'>336</a>
+<a name='L337'></a><a href='#L337'>337</a>
+<a name='L338'></a><a href='#L338'>338</a>
+<a name='L339'></a><a href='#L339'>339</a>
+<a name='L340'></a><a href='#L340'>340</a>
+<a name='L341'></a><a href='#L341'>341</a>
+<a name='L342'></a><a href='#L342'>342</a>
+<a name='L343'></a><a href='#L343'>343</a>
+<a name='L344'></a><a href='#L344'>344</a>
+<a name='L345'></a><a href='#L345'>345</a>
+<a name='L346'></a><a href='#L346'>346</a>
+<a name='L347'></a><a href='#L347'>347</a>
+<a name='L348'></a><a href='#L348'>348</a>
+<a name='L349'></a><a href='#L349'>349</a>
+<a name='L350'></a><a href='#L350'>350</a>
+<a name='L351'></a><a href='#L351'>351</a>
+<a name='L352'></a><a href='#L352'>352</a>
+<a name='L353'></a><a href='#L353'>353</a>
+<a name='L354'></a><a href='#L354'>354</a>
+<a name='L355'></a><a href='#L355'>355</a>
+<a name='L356'></a><a href='#L356'>356</a>
+<a name='L357'></a><a href='#L357'>357</a>
+<a name='L358'></a><a href='#L358'>358</a>
+<a name='L359'></a><a href='#L359'>359</a>
+<a name='L360'></a><a href='#L360'>360</a>
+<a name='L361'></a><a href='#L361'>361</a>
+<a name='L362'></a><a href='#L362'>362</a>
+<a name='L363'></a><a href='#L363'>363</a>
+<a name='L364'></a><a href='#L364'>364</a>
+<a name='L365'></a><a href='#L365'>365</a>
+<a name='L366'></a><a href='#L366'>366</a>
+<a name='L367'></a><a href='#L367'>367</a>
+<a name='L368'></a><a href='#L368'>368</a>
+<a name='L369'></a><a href='#L369'>369</a>
+<a name='L370'></a><a href='#L370'>370</a>
+<a name='L371'></a><a href='#L371'>371</a>
+<a name='L372'></a><a href='#L372'>372</a>
+<a name='L373'></a><a href='#L373'>373</a>
+<a name='L374'></a><a href='#L374'>374</a>
+<a name='L375'></a><a href='#L375'>375</a>
+<a name='L376'></a><a href='#L376'>376</a>
+<a name='L377'></a><a href='#L377'>377</a>
+<a name='L378'></a><a href='#L378'>378</a>
+<a name='L379'></a><a href='#L379'>379</a>
+<a name='L380'></a><a href='#L380'>380</a>
+<a name='L381'></a><a href='#L381'>381</a>
+<a name='L382'></a><a href='#L382'>382</a>
+<a name='L383'></a><a href='#L383'>383</a>
+<a name='L384'></a><a href='#L384'>384</a>
+<a name='L385'></a><a href='#L385'>385</a>
+<a name='L386'></a><a href='#L386'>386</a>
+<a name='L387'></a><a href='#L387'>387</a>
+<a name='L388'></a><a href='#L388'>388</a>
+<a name='L389'></a><a href='#L389'>389</a>
+<a name='L390'></a><a href='#L390'>390</a>
+<a name='L391'></a><a href='#L391'>391</a>
+<a name='L392'></a><a href='#L392'>392</a>
+<a name='L393'></a><a href='#L393'>393</a>
+<a name='L394'></a><a href='#L394'>394</a>
+<a name='L395'></a><a href='#L395'>395</a>
+<a name='L396'></a><a href='#L396'>396</a>
+<a name='L397'></a><a href='#L397'>397</a>
+<a name='L398'></a><a href='#L398'>398</a>
+<a name='L399'></a><a href='#L399'>399</a>
+<a name='L400'></a><a href='#L400'>400</a>
+<a name='L401'></a><a href='#L401'>401</a>
+<a name='L402'></a><a href='#L402'>402</a>
+<a name='L403'></a><a href='#L403'>403</a>
+<a name='L404'></a><a href='#L404'>404</a>
+<a name='L405'></a><a href='#L405'>405</a>
+<a name='L406'></a><a href='#L406'>406</a>
+<a name='L407'></a><a href='#L407'>407</a>
+<a name='L408'></a><a href='#L408'>408</a>
+<a name='L409'></a><a href='#L409'>409</a>
+<a name='L410'></a><a href='#L410'>410</a>
+<a name='L411'></a><a href='#L411'>411</a>
+<a name='L412'></a><a href='#L412'>412</a>
+<a name='L413'></a><a href='#L413'>413</a>
+<a name='L414'></a><a href='#L414'>414</a>
+<a name='L415'></a><a href='#L415'>415</a>
+<a name='L416'></a><a href='#L416'>416</a>
+<a name='L417'></a><a href='#L417'>417</a>
+<a name='L418'></a><a href='#L418'>418</a>
+<a name='L419'></a><a href='#L419'>419</a>
+<a name='L420'></a><a href='#L420'>420</a>
+<a name='L421'></a><a href='#L421'>421</a>
+<a name='L422'></a><a href='#L422'>422</a>
+<a name='L423'></a><a href='#L423'>423</a>
+<a name='L424'></a><a href='#L424'>424</a>
+<a name='L425'></a><a href='#L425'>425</a>
+<a name='L426'></a><a href='#L426'>426</a>
+<a name='L427'></a><a href='#L427'>427</a>
+<a name='L428'></a><a href='#L428'>428</a>
+<a name='L429'></a><a href='#L429'>429</a>
+<a name='L430'></a><a href='#L430'>430</a>
+<a name='L431'></a><a href='#L431'>431</a>
+<a name='L432'></a><a href='#L432'>432</a>
+<a name='L433'></a><a href='#L433'>433</a>
+<a name='L434'></a><a href='#L434'>434</a>
+<a name='L435'></a><a href='#L435'>435</a>
+<a name='L436'></a><a href='#L436'>436</a>
+<a name='L437'></a><a href='#L437'>437</a>
+<a name='L438'></a><a href='#L438'>438</a>
+<a name='L439'></a><a href='#L439'>439</a>
+<a name='L440'></a><a href='#L440'>440</a>
+<a name='L441'></a><a href='#L441'>441</a>
+<a name='L442'></a><a href='#L442'>442</a>
+<a name='L443'></a><a href='#L443'>443</a>
+<a name='L444'></a><a href='#L444'>444</a>
+<a name='L445'></a><a href='#L445'>445</a>
+<a name='L446'></a><a href='#L446'>446</a>
+<a name='L447'></a><a href='#L447'>447</a>
+<a name='L448'></a><a href='#L448'>448</a>
+<a name='L449'></a><a href='#L449'>449</a>
+<a name='L450'></a><a href='#L450'>450</a>
+<a name='L451'></a><a href='#L451'>451</a>
+<a name='L452'></a><a href='#L452'>452</a>
+<a name='L453'></a><a href='#L453'>453</a>
+<a name='L454'></a><a href='#L454'>454</a>
+<a name='L455'></a><a href='#L455'>455</a>
+<a name='L456'></a><a href='#L456'>456</a>
+<a name='L457'></a><a href='#L457'>457</a>
+<a name='L458'></a><a href='#L458'>458</a>
+<a name='L459'></a><a href='#L459'>459</a>
+<a name='L460'></a><a href='#L460'>460</a>
+<a name='L461'></a><a href='#L461'>461</a>
+<a name='L462'></a><a href='#L462'>462</a>
+<a name='L463'></a><a href='#L463'>463</a>
+<a name='L464'></a><a href='#L464'>464</a>
+<a name='L465'></a><a href='#L465'>465</a>
+<a name='L466'></a><a href='#L466'>466</a>
+<a name='L467'></a><a href='#L467'>467</a>
+<a name='L468'></a><a href='#L468'>468</a>
+<a name='L469'></a><a href='#L469'>469</a>
+<a name='L470'></a><a href='#L470'>470</a>
+<a name='L471'></a><a href='#L471'>471</a>
+<a name='L472'></a><a href='#L472'>472</a>
+<a name='L473'></a><a href='#L473'>473</a>
+<a name='L474'></a><a href='#L474'>474</a>
+<a name='L475'></a><a href='#L475'>475</a>
+<a name='L476'></a><a href='#L476'>476</a>
+<a name='L477'></a><a href='#L477'>477</a>
+<a name='L478'></a><a href='#L478'>478</a>
+<a name='L479'></a><a href='#L479'>479</a>
+<a name='L480'></a><a href='#L480'>480</a>
+<a name='L481'></a><a href='#L481'>481</a>
+<a name='L482'></a><a href='#L482'>482</a>
+<a name='L483'></a><a href='#L483'>483</a>
+<a name='L484'></a><a href='#L484'>484</a>
+<a name='L485'></a><a href='#L485'>485</a>
+<a name='L486'></a><a href='#L486'>486</a>
+<a name='L487'></a><a href='#L487'>487</a>
+<a name='L488'></a><a href='#L488'>488</a>
+<a name='L489'></a><a href='#L489'>489</a>
+<a name='L490'></a><a href='#L490'>490</a>
+<a name='L491'></a><a href='#L491'>491</a>
+<a name='L492'></a><a href='#L492'>492</a>
+<a name='L493'></a><a href='#L493'>493</a>
+<a name='L494'></a><a href='#L494'>494</a>
+<a name='L495'></a><a href='#L495'>495</a>
+<a name='L496'></a><a href='#L496'>496</a>
+<a name='L497'></a><a href='#L497'>497</a>
+<a name='L498'></a><a href='#L498'>498</a>
+<a name='L499'></a><a href='#L499'>499</a>
+<a name='L500'></a><a href='#L500'>500</a>
+<a name='L501'></a><a href='#L501'>501</a>
+<a name='L502'></a><a href='#L502'>502</a>
+<a name='L503'></a><a href='#L503'>503</a>
+<a name='L504'></a><a href='#L504'>504</a>
+<a name='L505'></a><a href='#L505'>505</a>
+<a name='L506'></a><a href='#L506'>506</a>
+<a name='L507'></a><a href='#L507'>507</a>
+<a name='L508'></a><a href='#L508'>508</a>
+<a name='L509'></a><a href='#L509'>509</a>
+<a name='L510'></a><a href='#L510'>510</a>
+<a name='L511'></a><a href='#L511'>511</a>
+<a name='L512'></a><a href='#L512'>512</a>
+<a name='L513'></a><a href='#L513'>513</a>
+<a name='L514'></a><a href='#L514'>514</a>
+<a name='L515'></a><a href='#L515'>515</a>
+<a name='L516'></a><a href='#L516'>516</a>
+<a name='L517'></a><a href='#L517'>517</a>
+<a name='L518'></a><a href='#L518'>518</a>
+<a name='L519'></a><a href='#L519'>519</a>
+<a name='L520'></a><a href='#L520'>520</a>
+<a name='L521'></a><a href='#L521'>521</a>
+<a name='L522'></a><a href='#L522'>522</a>
+<a name='L523'></a><a href='#L523'>523</a>
+<a name='L524'></a><a href='#L524'>524</a>
+<a name='L525'></a><a href='#L525'>525</a>
+<a name='L526'></a><a href='#L526'>526</a>
+<a name='L527'></a><a href='#L527'>527</a>
+<a name='L528'></a><a href='#L528'>528</a>
+<a name='L529'></a><a href='#L529'>529</a>
+<a name='L530'></a><a href='#L530'>530</a>
+<a name='L531'></a><a href='#L531'>531</a>
+<a name='L532'></a><a href='#L532'>532</a>
+<a name='L533'></a><a href='#L533'>533</a>
+<a name='L534'></a><a href='#L534'>534</a>
+<a name='L535'></a><a href='#L535'>535</a>
+<a name='L536'></a><a href='#L536'>536</a>
+<a name='L537'></a><a href='#L537'>537</a>
+<a name='L538'></a><a href='#L538'>538</a>
+<a name='L539'></a><a href='#L539'>539</a>
+<a name='L540'></a><a href='#L540'>540</a>
+<a name='L541'></a><a href='#L541'>541</a>
+<a name='L542'></a><a href='#L542'>542</a>
+<a name='L543'></a><a href='#L543'>543</a>
+<a name='L544'></a><a href='#L544'>544</a>
+<a name='L545'></a><a href='#L545'>545</a>
+<a name='L546'></a><a href='#L546'>546</a>
+<a name='L547'></a><a href='#L547'>547</a>
+<a name='L548'></a><a href='#L548'>548</a>
+<a name='L549'></a><a href='#L549'>549</a>
+<a name='L550'></a><a href='#L550'>550</a>
+<a name='L551'></a><a href='#L551'>551</a>
+<a name='L552'></a><a href='#L552'>552</a>
+<a name='L553'></a><a href='#L553'>553</a>
+<a name='L554'></a><a href='#L554'>554</a>
+<a name='L555'></a><a href='#L555'>555</a>
+<a name='L556'></a><a href='#L556'>556</a>
+<a name='L557'></a><a href='#L557'>557</a>
+<a name='L558'></a><a href='#L558'>558</a>
+<a name='L559'></a><a href='#L559'>559</a>
+<a name='L560'></a><a href='#L560'>560</a>
+<a name='L561'></a><a href='#L561'>561</a>
+<a name='L562'></a><a href='#L562'>562</a>
+<a name='L563'></a><a href='#L563'>563</a>
+<a name='L564'></a><a href='#L564'>564</a>
+<a name='L565'></a><a href='#L565'>565</a>
+<a name='L566'></a><a href='#L566'>566</a>
+<a name='L567'></a><a href='#L567'>567</a>
+<a name='L568'></a><a href='#L568'>568</a>
+<a name='L569'></a><a href='#L569'>569</a>
+<a name='L570'></a><a href='#L570'>570</a>
+<a name='L571'></a><a href='#L571'>571</a>
+<a name='L572'></a><a href='#L572'>572</a>
+<a name='L573'></a><a href='#L573'>573</a>
+<a name='L574'></a><a href='#L574'>574</a>
+<a name='L575'></a><a href='#L575'>575</a>
+<a name='L576'></a><a href='#L576'>576</a>
+<a name='L577'></a><a href='#L577'>577</a>
+<a name='L578'></a><a href='#L578'>578</a>
+<a name='L579'></a><a href='#L579'>579</a>
+<a name='L580'></a><a href='#L580'>580</a>
+<a name='L581'></a><a href='#L581'>581</a>
+<a name='L582'></a><a href='#L582'>582</a>
+<a name='L583'></a><a href='#L583'>583</a>
+<a name='L584'></a><a href='#L584'>584</a>
+<a name='L585'></a><a href='#L585'>585</a>
+<a name='L586'></a><a href='#L586'>586</a>
+<a name='L587'></a><a href='#L587'>587</a>
+<a name='L588'></a><a href='#L588'>588</a>
+<a name='L589'></a><a href='#L589'>589</a>
+<a name='L590'></a><a href='#L590'>590</a>
+<a name='L591'></a><a href='#L591'>591</a>
+<a name='L592'></a><a href='#L592'>592</a>
+<a name='L593'></a><a href='#L593'>593</a>
+<a name='L594'></a><a href='#L594'>594</a>
+<a name='L595'></a><a href='#L595'>595</a>
+<a name='L596'></a><a href='#L596'>596</a>
+<a name='L597'></a><a href='#L597'>597</a>
+<a name='L598'></a><a href='#L598'>598</a>
+<a name='L599'></a><a href='#L599'>599</a>
+<a name='L600'></a><a href='#L600'>600</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">42x</span>
+<span class="cline-any cline-yes">42x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">export const languageOptions = {
+  English: 'English',
+  Hindi: 'हिन्दी',
+  Tamil: 'தமிழ்',
+  Telugu: 'తెలుగు',
+  Bengali: 'বাংলা',
+  Kannada: 'ಕನ್ನಡ',
+};
+&nbsp;
+export const translations = {
+  English: {
+    electionProcessGuide: 'Election Process Guide',
+    appTitle: 'Voter Education AI',
+    dashboard: 'Dashboard',
+    assistant: 'AI Assistant',
+    timeline: 'Timeline',
+    pollingMap: 'Polling Map',
+    findBooth: 'Find My Booth',
+    firstTimeVoter: 'First-Time Voter',
+    experiencedVoter: 'Experienced Voter',
+    seniorCitizen: 'Senior Citizen',
+    accessibilitySupport: 'Needs Accessibility Support',
+    aiHeroCore: 'AI Hero Core',
+    expertTitle: 'Voter Education Expert',
+    expertSubtitle: 'Ask me anything about the Indian election process. I am 100% non-partisan.',
+    quickPrompts: 'Quick Prompts',
+    personalizationActive: 'Personalization Active',
+    defaultConfiguration: 'Default configuration loaded.',
+    replyingIn: 'Replying in {{language}} for a {{voterType}}.',
+    thinking: 'Expert is thinking',
+    askPlaceholder: 'Ask a question...',
+    send: 'Send',
+    promptId: 'What ID do I need to vote?',
+    promptEvm: 'How does the EVM work?',
+    promptVvpat: 'What is VVPAT?',
+    promptList: "How do I check if I'm on the voter list?",
+    promptBooth: 'Walk me through the polling booth step by step',
+    promptTimeline: 'What are the voting timelines?',
+    welcomeDefault: 'Welcome! I am your non-partisan Voter Education Expert. How can I help you understand the election process today?',
+    welcomeFirstTime: 'Welcome! As a first-time voter, you might have many questions. I can help with ID requirements, election timelines, EVM/VVPAT, or walk you through the polling booth process. What would you like to know?',
+    welcomeReturning: 'Welcome back! I can help with ID requirements, election timelines, EVM/VVPAT, or walk you through the polling booth process. What would you like to know?',
+    replyVoterId: 'A Voter ID, also called the EPIC card, is your election identity card. It helps polling officials verify your identity, but you still need your name to be present on the voter list.',
+    replyBring: 'You will need a valid Photo ID to vote. Most common are the EPIC (Voter ID Card), Aadhaar Card, PAN Card, Driving License, or Indian Passport. Ensure your name matches the voter list.',
+    replyId: 'You will need a valid Photo ID to vote. Most common are the EPIC (Voter ID Card), Aadhaar Card, PAN Card, Driving License, or Indian Passport. Ensure your name matches the voter list.',
+    replyEvm: 'The EVM (Electronic Voting Machine) is very simple to use. At the polling booth, press the blue button next to your chosen symbol. You will hear a beep confirming your vote.',
+    replyVvpat: 'VVPAT (Voter Verifiable Paper Audit Trail) is a machine attached to the EVM. After you press the EVM button, a printed slip will show for 7 seconds to let you verify your vote before it drops into a sealed box.',
+    replyList: 'You can check your name on the Electoral Roll (Voter List) by visiting the official ECI portal (electoralsearch.eci.gov.in) and searching by your EPIC number or personal details.',
+    replyBooth: 'Here is the process: 1. Entrance check. 2. First Officer verifies your ID. 3. Second Officer marks your finger with indelible ink and you sign the register. 4. You cast your vote in the secret EVM compartment. 5. Exit quietly.',
+    replyTimeline: 'Election timelines typically include: Announcement of Schedule, Last Date for Voter Registration, Nomination of Candidates, Campaigning Period, Voting Day, and finally, Result Declaration. Check your local state guidelines for exact dates.',
+    replyChanges: 'As an experienced voter, here is what changed: M3 EVM machines are used nationwide, the VVPAT slip is visible for 7 seconds, you can vote with Voter ID or other approved photo IDs, and booth slips are not valid as standalone ID.',
+    replyEvmExperienced: 'New EVM update: M3 EVM machines are now used nationwide. The voting method is the same, but verification is paired with a VVPAT display after you press the button.',
+    replyVvpatExperienced: 'Current VVPAT process: after you vote on the EVM, the VVPAT slip is displayed for 7 seconds so you can verify your choice before it drops into the sealed box.',
+    replySeniorPriority: 'Yes. As a senior citizen, you get priority entry at the polling booth, so you do not need to wait in the general queue. Booth staff can also help with seating, water, and wheelchair support if needed.',
+    replySeniorHomeVoting: 'If you are 85 years or older, you can apply for home voting using Form 12D through your BLO. A polling team will then visit you so you can vote from home through the approved process.',
+    replySeniorHelp: 'Senior citizens can get priority queue access, seating, drinking water, wheelchair assistance, and help from booth staff. A family member or companion can also accompany you when support is needed.',
+    replyAccessibleBooth: 'Yes. Polling booths are required to provide wheelchair access and ramps. There is also priority queuing for voters with disabilities, and a booth accessibility officer should be available to assist.',
+    replyAccessibleCompanion: 'Yes. A companion or family member can accompany you inside the booth to help you vote if needed. Booth staff can also support you with access, movement, and priority entry.',
+    replyAccessibleBrailleEvm: 'A Braille EVM has Braille markings on each button so a visually impaired voter can identify the correct option and vote independently. These accessible EVM labels are provided at polling booths.',
+    replyPolitical: 'As a non-partisan Voter Education Assistant, I cannot provide opinions or information about specific political parties, candidates, or whom you should vote for. My role is to help you understand the voting process.',
+    replyDefault: 'I am a Voter Education Assistant. You can ask me about ID requirements, polling booth steps, EVMs, or how to check your name on the voter list.',
+  },
+  Hindi: {
+    electionProcessGuide: 'चुनाव प्रक्रिया मार्गदर्शिका',
+    appTitle: 'मतदाता शिक्षा AI',
+    dashboard: 'डैशबोर्ड',
+    assistant: 'AI सहायक',
+    timeline: 'समयरेखा',
+    pollingMap: 'मतदान मानचित्र',
+    findBooth: 'मेरा बूथ खोजें',
+    firstTimeVoter: 'पहली बार मतदाता',
+    experiencedVoter: 'अनुभवी मतदाता',
+    seniorCitizen: 'वरिष्ठ नागरिक',
+    accessibilitySupport: 'सुगम्यता सहायता चाहिए',
+    aiHeroCore: 'AI हीरो कोर',
+    expertTitle: 'मतदाता शिक्षा विशेषज्ञ',
+    expertSubtitle: 'भारतीय चुनाव प्रक्रिया के बारे में कुछ भी पूछें। मैं 100% निष्पक्ष हूं।',
+    quickPrompts: 'त्वरित प्रश्न',
+    personalizationActive: 'व्यक्तिकरण सक्रिय',
+    defaultConfiguration: 'डिफ़ॉल्ट कॉन्फ़िगरेशन लोड हो गया।',
+    replyingIn: '{{voterType}} के लिए {{language}} में उत्तर दे रहा हूं।',
+    thinking: 'विशेषज्ञ सोच रहा है',
+    askPlaceholder: 'प्रश्न पूछें...',
+    send: 'भेजें',
+    promptId: 'मतदान के लिए कौन सा पहचान पत्र चाहिए?',
+    promptEvm: 'EVM कैसे काम करती है?',
+    promptVvpat: 'VVPAT क्या है?',
+    promptList: 'मैं मतदाता सूची में अपना नाम कैसे जांचूं?',
+    promptBooth: 'मुझे मतदान बूथ की प्रक्रिया चरण दर चरण बताएं',
+    promptTimeline: 'मतदान की समयरेखा क्या है?',
+    welcomeDefault: 'स्वागत है! मैं आपका निष्पक्ष मतदाता शिक्षा विशेषज्ञ हूं। आज मैं चुनाव प्रक्रिया समझने में कैसे मदद करूं?',
+    welcomeFirstTime: 'स्वागत है! पहली बार मतदाता होने के कारण आपके कई प्रश्न हो सकते हैं। मैं पहचान पत्र, चुनाव समयरेखा, EVM/VVPAT और मतदान बूथ प्रक्रिया समझा सकता हूं। आप क्या जानना चाहेंगे?',
+    welcomeReturning: 'फिर से स्वागत है! मैं पहचान पत्र, चुनाव समयरेखा, EVM/VVPAT और मतदान बूथ प्रक्रिया समझा सकता हूं। आप क्या जानना चाहेंगे?',
+    replyId: 'मतदान के लिए मान्य फोटो पहचान पत्र चाहिए। आम तौर पर EPIC/Voter ID, Aadhaar, PAN, Driving License या Indian Passport मान्य होते हैं। आपका नाम मतदाता सूची में होना चाहिए।',
+    replyEvm: 'EVM इस्तेमाल करना आसान है। मतदान बूथ पर अपने चुने हुए चिन्ह के सामने नीला बटन दबाएं। वोट दर्ज होने पर बीप सुनाई देगी।',
+    replyVvpat: 'VVPAT, EVM से जुड़ी मशीन है। बटन दबाने के बाद पर्ची 7 सेकंड तक दिखती है ताकि आप अपना वोट जांच सकें, फिर वह सीलबंद डिब्बे में गिर जाती है।',
+    replyList: 'आप आधिकारिक ECI पोर्टल electoralsearch.eci.gov.in पर EPIC नंबर या व्यक्तिगत विवरण से मतदाता सूची में अपना नाम जांच सकते हैं।',
+    replyBooth: 'प्रक्रिया: 1. प्रवेश जांच। 2. अधिकारी ID सत्यापित करता है। 3. आपकी उंगली पर स्याही लगती है और आप रजिस्टर पर हस्ताक्षर करते हैं। 4. गुप्त कक्ष में EVM पर वोट डालते हैं। 5. शांतिपूर्वक बाहर निकलते हैं।',
+    replyTimeline: 'चुनाव समयरेखा में आम तौर पर कार्यक्रम घोषणा, पंजीकरण की अंतिम तिथि, नामांकन, प्रचार अवधि, मतदान दिवस और परिणाम घोषणा शामिल होते हैं। सही तारीखें अपने राज्य के निर्देशों में देखें।',
+    replyPolitical: 'मैं निष्पक्ष मतदाता शिक्षा सहायक हूं, इसलिए किसी पार्टी, उम्मीदवार या किसे वोट दें इस पर राय नहीं दे सकता। मेरा काम मतदान प्रक्रिया समझाना है।',
+    replyDefault: 'मैं मतदाता शिक्षा सहायक हूं। आप पहचान पत्र, मतदान बूथ प्रक्रिया, EVM या मतदाता सूची में नाम जांचने के बारे में पूछ सकते हैं।',
+  },
+  Telugu: {
+    electionProcessGuide: 'ఎన్నికల ప్రక్రియ మార్గదర్శిని',
+    appTitle: 'ఓటరు విద్య AI',
+    dashboard: 'డాష్‌బోర్డ్',
+    assistant: 'AI సహాయకుడు',
+    timeline: 'కాలక్రమం',
+    pollingMap: 'పోలింగ్ మ్యాప్',
+    findBooth: 'నా బూత్ కనుగొను',
+    firstTimeVoter: 'మొదటిసారి ఓటరు',
+    experiencedVoter: 'అనుభవజ్ఞుడైన ఓటరు',
+    seniorCitizen: 'వృద్ధ పౌరుడు',
+    accessibilitySupport: 'ప్రాప్యత సహాయం అవసరం',
+    aiHeroCore: 'AI హీరో కోర్',
+    expertTitle: 'ఓటరు విద్య నిపుణుడు',
+    expertSubtitle: 'భారత ఎన్నికల ప్రక్రియ గురించి ఏదైనా అడగండి. నేను 100% పక్షపాతం లేనివాడిని.',
+    quickPrompts: 'త్వరిత ప్రశ్నలు',
+    personalizationActive: 'వ్యక్తిగతీకరణ సక్రియం',
+    defaultConfiguration: 'డిఫాల్ట్ కాన్ఫిగరేషన్ లోడ్ అయింది.',
+    replyingIn: '{{voterType}} కోసం {{language}}లో సమాధానం ఇస్తున్నాను.',
+    thinking: 'నిపుణుడు ఆలోచిస్తున్నాడు',
+    askPlaceholder: 'ప్రశ్న అడగండి...',
+    send: 'పంపు',
+    promptId: 'ఓటు వేయడానికి ఏ ID అవసరం?',
+    promptEvm: 'EVM ఎలా పనిచేస్తుంది?',
+    promptVvpat: 'VVPAT అంటే ఏమిటి?',
+    promptList: 'ఓటరు జాబితాలో నా పేరు ఉందో లేదో ఎలా చూసుకోవాలి?',
+    promptBooth: 'పోలింగ్ బూత్ ప్రక్రియను దశలవారీగా చెప్పండి',
+    promptTimeline: 'ఓటింగ్ కాలక్రమం ఏమిటి?',
+    welcomeDefault: 'స్వాగతం! నేను మీ పక్షపాతం లేని ఓటరు విద్య నిపుణుడిని. ఎన్నికల ప్రక్రియను అర్థం చేసుకోవడంలో ఎలా సహాయం చేయగలను?',
+    welcomeFirstTime: 'స్వాగతం! మీరు మొదటిసారి ఓటరు కాబట్టి మీకు చాలా ప్రశ్నలు ఉండవచ్చు. ID అవసరాలు, ఎన్నికల కాలక్రమం, EVM/VVPAT లేదా పోలింగ్ బూత్ ప్రక్రియ గురించి నేను సహాయం చేయగలను. మీరు ఏమి తెలుసుకోవాలనుకుంటున్నారు?',
+    welcomeReturning: 'మళ్లీ స్వాగతం! ID అవసరాలు, ఎన్నికల కాలక్రమం, EVM/VVPAT లేదా పోలింగ్ బూత్ ప్రక్రియ గురించి నేను సహాయం చేయగలను. మీరు ఏమి తెలుసుకోవాలనుకుంటున్నారు?',
+    replyId: 'ఓటు వేయడానికి చెల్లుబాటు అయ్యే ఫోటో ID అవసరం. సాధారణంగా EPIC/Voter ID, Aadhaar, PAN, Driving License లేదా Indian Passport ఉపయోగించవచ్చు. మీ పేరు ఓటరు జాబితాలో ఉండాలి.',
+    replyEvm: 'EVM ఉపయోగించడం చాలా సులభం. పోలింగ్ బూత్‌లో మీకు నచ్చిన గుర్తు పక్కన ఉన్న నీలి బటన్‌ను నొక్కండి. మీ ఓటు నమోదైనట్లు బీప్ శబ్దం వినిపిస్తుంది.',
+    replyVvpat: 'VVPAT అనేది EVMకు జతచేయబడిన యంత్రం. మీరు బటన్ నొక్కిన తర్వాత మీ ఓటు చూపించే చీటి 7 సెకన్లు కనిపిస్తుంది, తర్వాత అది సీలు చేసిన పెట్టెలో పడుతుంది.',
+    replyList: 'మీరు అధికారిక ECI పోర్టల్ electoralsearch.eci.gov.in లో EPIC నంబర్ లేదా వ్యక్తిగత వివరాలతో ఓటరు జాబితాలో మీ పేరు చూసుకోవచ్చు.',
+    replyBooth: 'ప్రక్రియ: 1. ప్రవేశ తనిఖీ. 2. అధికారి మీ IDను ధృవీకరిస్తారు. 3. మీ వేళ్లపై సిరా వేస్తారు మరియు మీరు రిజిస్టర్‌లో సంతకం చేస్తారు. 4. రహస్య EVM గదిలో ఓటు వేస్తారు. 5. ప్రశాంతంగా బయటకు వస్తారు.',
+    replyTimeline: 'ఎన్నికల కాలక్రమంలో సాధారణంగా షెడ్యూల్ ప్రకటన, ఓటరు నమోదు చివరి తేదీ, అభ్యర్థుల నామినేషన్, ప్రచార కాలం, ఓటింగ్ రోజు మరియు ఫలితాల ప్రకటన ఉంటాయి. ఖచ్చితమైన తేదీలకు మీ రాష్ట్ర మార్గదర్శకాలు చూడండి.',
+    replyPolitical: 'నేను పక్షపాతం లేని ఓటరు విద్య సహాయకుడిని, కాబట్టి పార్టీలు, అభ్యర్థులు లేదా ఎవరికి ఓటు వేయాలో చెప్పలేను. నా పని ఓటింగ్ ప్రక్రియను అర్థం చేయించడం.',
+    replyDefault: 'నేను ఓటరు విద్య సహాయకుడిని. ID అవసరాలు, పోలింగ్ బూత్ దశలు, EVMలు లేదా ఓటరు జాబితాలో పేరు ఎలా చూసుకోవాలో అడగవచ్చు.',
+  },
+  Tamil: {},
+  Bengali: {},
+  Kannada: {},
+};
+&nbsp;
+translations.Tamil = {
+  electionProcessGuide: 'தேர்தல் செயல்முறை வழிகாட்டி',
+  appTitle: 'வாக்காளர் கல்வி AI',
+  dashboard: 'டாஷ்போர்டு',
+  assistant: 'AI உதவியாளர்',
+  timeline: 'காலவரிசை',
+  pollingMap: 'வாக்குச்சாவடி வரைபடம்',
+  findBooth: 'என் சாவடியைக் கண்டறி',
+  firstTimeVoter: 'முதல் முறை வாக்காளர்',
+  experiencedVoter: 'அனுபவமுள்ள வாக்காளர்',
+  seniorCitizen: 'மூத்த குடிமகன்',
+  accessibilitySupport: 'அணுகல் உதவி தேவை',
+  aiHeroCore: 'AI ஹீரோ கோர்',
+  expertTitle: 'வாக்காளர் கல்வி நிபுணர்',
+  expertSubtitle: 'இந்திய தேர்தல் செயல்முறை பற்றி எதையும் கேளுங்கள். நான் 100% சார்பற்றவன்.',
+  quickPrompts: 'விரைவு கேள்விகள்',
+  personalizationActive: 'தனிப்பயனாக்கம் செயலில்',
+  defaultConfiguration: 'இயல்புநிலை அமைப்பு ஏற்றப்பட்டது.',
+  replyingIn: '{{voterType}}க்கு {{language}} மொழியில் பதிலளிக்கிறேன்.',
+  thinking: 'நிபுணர் யோசிக்கிறார்',
+  askPlaceholder: 'கேள்வி கேளுங்கள்...',
+  send: 'அனுப்பு',
+  promptId: 'வாக்களிக்க எந்த ID தேவை?',
+  promptEvm: 'EVM எப்படி வேலை செய்கிறது?',
+  promptVvpat: 'VVPAT என்றால் என்ன?',
+  promptList: 'வாக்காளர் பட்டியலில் என் பெயர் உள்ளதா எப்படி பார்க்கலாம்?',
+  promptBooth: 'வாக்குச்சாவடி செயல்முறையை படிப்படியாக சொல்லுங்கள்',
+  promptTimeline: 'வாக்குப்பதிவு காலவரிசை என்ன?',
+  welcomeDefault: 'வரவேற்கிறேன்! நான் உங்கள் சார்பற்ற வாக்காளர் கல்வி நிபுணர். தேர்தல் செயல்முறையை புரிந்துகொள்ள எப்படி உதவலாம்?',
+  welcomeFirstTime: 'வரவேற்கிறேன்! நீங்கள் முதல் முறை வாக்காளர் என்பதால் பல கேள்விகள் இருக்கலாம். ID தேவைகள், தேர்தல் காலவரிசை, EVM/VVPAT அல்லது வாக்குச்சாவடி செயல்முறை பற்றி நான் உதவலாம். என்ன தெரிந்துகொள்ள விரும்புகிறீர்கள்?',
+  welcomeReturning: 'மீண்டும் வரவேற்கிறேன்! ID தேவைகள், தேர்தல் காலவரிசை, EVM/VVPAT அல்லது வாக்குச்சாவடி செயல்முறை பற்றி நான் உதவலாம். என்ன தெரிந்துகொள்ள விரும்புகிறீர்கள்?',
+  replyId: 'வாக்களிக்க செல்லுபடியாகும் புகைப்பட ID தேவை. பொதுவாக EPIC/Voter ID, Aadhaar, PAN, Driving License அல்லது Indian Passport பயன்படுத்தலாம். உங்கள் பெயர் வாக்காளர் பட்டியலில் இருக்க வேண்டும்.',
+  replyEvm: 'EVM பயன்படுத்துவது மிகவும் எளிது. வாக்குச்சாவடியில் நீங்கள் தேர்ந்தெடுத்த சின்னத்தின் அருகிலுள்ள நீல பொத்தானை அழுத்துங்கள். உங்கள் வாக்கு பதிவானதை உறுதிப்படுத்த பீப் ஒலி கேட்கும்.',
+  replyVvpat: 'VVPAT என்பது EVM-க்கு இணைக்கப்பட்ட இயந்திரம். பொத்தானை அழுத்திய பிறகு உங்கள் வாக்கை காட்டும் சீட்டு 7 வினாடிகள் தெரியும், பின்னர் அது மூடப்பட்ட பெட்டியில் விழும்.',
+  replyList: 'அதிகாரப்பூர்வ ECI போர்டல் electoralsearch.eci.gov.in-ல் EPIC எண் அல்லது தனிப்பட்ட விவரங்கள் மூலம் வாக்காளர் பட்டியலில் உங்கள் பெயரைச் சரிபார்க்கலாம்.',
+  replyBooth: 'செயல்முறை: 1. நுழைவு சோதனை. 2. அதிகாரி உங்கள் ID-ஐ சரிபார்ப்பார். 3. உங்கள் விரலில் மை வைக்கப்படும் மற்றும் பதிவேட்டில் கையொப்பமிடுவீர்கள். 4. ரகசிய EVM அறையில் வாக்களிப்பீர்கள். 5. அமைதியாக வெளியேறுவீர்கள்.',
+  replyTimeline: 'தேர்தல் காலவரிசையில் பொதுவாக அட்டவணை அறிவிப்பு, வாக்காளர் பதிவு கடைசி தேதி, வேட்பாளர் மனு தாக்கல், பிரச்சார காலம், வாக்குப்பதிவு நாள் மற்றும் முடிவு அறிவிப்பு அடங்கும். சரியான தேதிகளுக்கு உங்கள் மாநில வழிகாட்டுதலை பார்க்கவும்.',
+  replyPolitical: 'நான் சார்பற்ற வாக்காளர் கல்வி உதவியாளர், எனவே கட்சிகள், வேட்பாளர்கள் அல்லது யாருக்கு வாக்களிக்க வேண்டும் என்பது குறித்து கருத்து சொல்ல முடியாது. என் பணி வாக்குப்பதிவு செயல்முறையை விளக்குவது.',
+  replyDefault: 'நான் வாக்காளர் கல்வி உதவியாளர். ID தேவைகள், வாக்குச்சாவடி படிகள், EVMகள் அல்லது வாக்காளர் பட்டியலில் பெயரைச் சரிபார்ப்பது பற்றி கேட்கலாம்.',
+};
+&nbsp;
+translations.Bengali = {
+  electionProcessGuide: 'নির্বাচন প্রক্রিয়া নির্দেশিকা',
+  appTitle: 'ভোটার শিক্ষা AI',
+  dashboard: 'ড্যাশবোর্ড',
+  assistant: 'AI সহায়ক',
+  timeline: 'সময়রেখা',
+  pollingMap: 'ভোটকেন্দ্র মানচিত্র',
+  findBooth: 'আমার বুথ খুঁজুন',
+  firstTimeVoter: 'প্রথমবারের ভোটার',
+  experiencedVoter: 'অভিজ্ঞ ভোটার',
+  seniorCitizen: 'প্রবীণ নাগরিক',
+  accessibilitySupport: 'সহায়তা প্রয়োজন',
+  aiHeroCore: 'AI হিরো কোর',
+  expertTitle: 'ভোটার শিক্ষা বিশেষজ্ঞ',
+  expertSubtitle: 'ভারতীয় নির্বাচন প্রক্রিয়া সম্পর্কে যেকোনো প্রশ্ন করুন। আমি 100% নিরপেক্ষ।',
+  quickPrompts: 'দ্রুত প্রশ্ন',
+  personalizationActive: 'ব্যক্তিগতকরণ সক্রিয়',
+  defaultConfiguration: 'ডিফল্ট কনফিগারেশন লোড হয়েছে।',
+  replyingIn: '{{voterType}}-এর জন্য {{language}} ভাষায় উত্তর দিচ্ছি।',
+  thinking: 'বিশেষজ্ঞ ভাবছেন',
+  askPlaceholder: 'একটি প্রশ্ন করুন...',
+  send: 'পাঠান',
+  promptId: 'ভোট দিতে কোন ID দরকার?',
+  promptEvm: 'EVM কীভাবে কাজ করে?',
+  promptVvpat: 'VVPAT কী?',
+  promptList: 'ভোটার তালিকায় আমার নাম আছে কি না কীভাবে দেখব?',
+  promptBooth: 'ভোটকেন্দ্রের প্রক্রিয়া ধাপে ধাপে বলুন',
+  promptTimeline: 'ভোটের সময়রেখা কী?',
+  welcomeDefault: 'স্বাগতম! আমি আপনার নিরপেক্ষ ভোটার শিক্ষা বিশেষজ্ঞ। নির্বাচন প্রক্রিয়া বুঝতে কীভাবে সাহায্য করতে পারি?',
+  welcomeFirstTime: 'স্বাগতম! আপনি প্রথমবারের ভোটার, তাই আপনার অনেক প্রশ্ন থাকতে পারে। ID প্রয়োজনীয়তা, নির্বাচন সময়রেখা, EVM/VVPAT বা ভোটকেন্দ্রের প্রক্রিয়া সম্পর্কে আমি সাহায্য করতে পারি। আপনি কী জানতে চান?',
+  welcomeReturning: 'আবার স্বাগতম! ID প্রয়োজনীয়তা, নির্বাচন সময়রেখা, EVM/VVPAT বা ভোটকেন্দ্রের প্রক্রিয়া সম্পর্কে আমি সাহায্য করতে পারি। আপনি কী জানতে চান?',
+  replyId: 'ভোট দিতে বৈধ ছবি-সহ ID দরকার। সাধারণত EPIC/Voter ID, Aadhaar, PAN, Driving License বা Indian Passport ব্যবহার করা যায়। আপনার নাম ভোটার তালিকায় থাকতে হবে।',
+  replyEvm: 'EVM ব্যবহার করা খুব সহজ। ভোটকেন্দ্রে আপনার পছন্দের প্রতীকের পাশে থাকা নীল বোতাম চাপুন। ভোট রেকর্ড হলে একটি বিপ শব্দ শুনবেন।',
+  replyVvpat: 'VVPAT হলো EVM-এর সঙ্গে যুক্ত একটি যন্ত্র। বোতাম চাপার পর আপনার ভোট দেখানো কাগজের স্লিপ 7 সেকেন্ড দেখা যায়, তারপর সেটি সিল করা বাক্সে পড়ে যায়।',
+  replyList: 'আপনি অফিসিয়াল ECI পোর্টাল electoralsearch.eci.gov.in-এ EPIC নম্বর বা ব্যক্তিগত তথ্য দিয়ে ভোটার তালিকায় নিজের নাম দেখতে পারেন।',
+  replyBooth: 'প্রক্রিয়া: 1. প্রবেশ পরীক্ষা। 2. কর্মকর্তা আপনার ID যাচাই করেন। 3. আপনার আঙুলে কালি দেওয়া হয় এবং আপনি রেজিস্টারে সই করেন। 4. গোপন EVM কক্ষে ভোট দেন। 5. শান্তভাবে বেরিয়ে যান।',
+  replyTimeline: 'নির্বাচন সময়রেখায় সাধারণত সময়সূচি ঘোষণা, ভোটার নিবন্ধনের শেষ তারিখ, প্রার্থীদের মনোনয়ন, প্রচারের সময়, ভোটের দিন এবং ফল ঘোষণা থাকে। সঠিক তারিখের জন্য আপনার রাজ্যের নির্দেশিকা দেখুন।',
+  replyPolitical: 'আমি নিরপেক্ষ ভোটার শিক্ষা সহায়ক, তাই কোনো দল, প্রার্থী বা কাকে ভোট দেবেন সে বিষয়ে মতামত দিতে পারি না। আমার কাজ ভোটদান প্রক্রিয়া বোঝানো।',
+  replyDefault: 'আমি ভোটার শিক্ষা সহায়ক। আপনি ID প্রয়োজনীয়তা, ভোটকেন্দ্রের ধাপ, EVM বা ভোটার তালিকায় নাম দেখার বিষয়ে প্রশ্ন করতে পারেন।',
+};
+&nbsp;
+translations.Kannada = {
+  electionProcessGuide: 'ಚುನಾವಣಾ ಪ್ರಕ್ರಿಯೆ ಮಾರ್ಗದರ್ಶಿ',
+  appTitle: 'ಮತದಾರ ಶಿಕ್ಷಣ AI',
+  dashboard: 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್',
+  assistant: 'AI ಸಹಾಯಕ',
+  timeline: 'ಕಾಲರೇಖೆ',
+  pollingMap: 'ಮತಗಟ್ಟೆ ನಕ್ಷೆ',
+  findBooth: 'ನನ್ನ ಬೂತ್ ಹುಡುಕಿ',
+  firstTimeVoter: 'ಮೊದಲ ಬಾರಿ ಮತದಾರ',
+  experiencedVoter: 'ಅನುಭವ ಹೊಂದಿದ ಮತದಾರ',
+  seniorCitizen: 'ಹಿರಿಯ ನಾಗರಿಕ',
+  accessibilitySupport: 'ಪ್ರವೇಶ ಸಹಾಯ ಅಗತ್ಯ',
+  aiHeroCore: 'AI ಹೀರೋ ಕೋರ್',
+  expertTitle: 'ಮತದಾರ ಶಿಕ್ಷಣ ತಜ್ಞ',
+  expertSubtitle: 'ಭಾರತೀಯ ಚುನಾವಣಾ ಪ್ರಕ್ರಿಯೆಯ ಬಗ್ಗೆ ಏನು ಬೇಕಾದರೂ ಕೇಳಿ. ನಾನು 100% ಪಕ್ಷಪಾತರಹಿತ.',
+  quickPrompts: 'ತ್ವರಿತ ಪ್ರಶ್ನೆಗಳು',
+  personalizationActive: 'ವೈಯಕ್ತೀಕರಣ ಸಕ್ರಿಯ',
+  defaultConfiguration: 'ಡೀಫಾಲ್ಟ್ ಸಂರಚನೆ ಲೋಡ್ ಆಗಿದೆ.',
+  replyingIn: '{{voterType}}ಗಾಗಿ {{language}} ಭಾಷೆಯಲ್ಲಿ ಉತ್ತರಿಸುತ್ತಿದ್ದೇನೆ.',
+  thinking: 'ತಜ್ಞ ಯೋಚಿಸುತ್ತಿದ್ದಾರೆ',
+  askPlaceholder: 'ಪ್ರಶ್ನೆ ಕೇಳಿ...',
+  send: 'ಕಳುಹಿಸಿ',
+  promptId: 'ಮತ ಹಾಕಲು ಯಾವ ID ಬೇಕು?',
+  promptEvm: 'EVM ಹೇಗೆ ಕೆಲಸ ಮಾಡುತ್ತದೆ?',
+  promptVvpat: 'VVPAT ಎಂದರೆ ಏನು?',
+  promptList: 'ಮತದಾರರ ಪಟ್ಟಿಯಲ್ಲಿ ನನ್ನ ಹೆಸರು ಇದೆಯೇ ಎಂದು ಹೇಗೆ ಪರಿಶೀಲಿಸಬೇಕು?',
+  promptBooth: 'ಮತಗಟ್ಟೆ ಪ್ರಕ್ರಿಯೆಯನ್ನು ಹಂತ ಹಂತವಾಗಿ ತಿಳಿಸಿ',
+  promptTimeline: 'ಮತದಾನದ ಕಾಲರೇಖೆ ಏನು?',
+  welcomeDefault: 'ಸ್ವಾಗತ! ನಾನು ನಿಮ್ಮ ಪಕ್ಷಪಾತರಹಿತ ಮತದಾರ ಶಿಕ್ಷಣ ತಜ್ಞ. ಚುನಾವಣಾ ಪ್ರಕ್ರಿಯೆಯನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳಲು ಹೇಗೆ ಸಹಾಯ ಮಾಡಲಿ?',
+  welcomeFirstTime: 'ಸ್ವಾಗತ! ನೀವು ಮೊದಲ ಬಾರಿ ಮತದಾರರಾಗಿರುವುದರಿಂದ ನಿಮಗೆ ಹಲವು ಪ್ರಶ್ನೆಗಳಿರಬಹುದು. ID ಅಗತ್ಯಗಳು, ಚುನಾವಣಾ ಕಾಲರೇಖೆ, EVM/VVPAT ಅಥವಾ ಮತಗಟ್ಟೆ ಪ್ರಕ್ರಿಯೆಯಲ್ಲಿ ನಾನು ಸಹಾಯ ಮಾಡಬಹುದು. ನೀವು ಏನು ತಿಳಿದುಕೊಳ್ಳಲು ಬಯಸುತ್ತೀರಿ?',
+  welcomeReturning: 'ಮತ್ತೆ ಸ್ವಾಗತ! ID ಅಗತ್ಯಗಳು, ಚುನಾವಣಾ ಕಾಲರೇಖೆ, EVM/VVPAT ಅಥವಾ ಮತಗಟ್ಟೆ ಪ್ರಕ್ರಿಯೆಯಲ್ಲಿ ನಾನು ಸಹಾಯ ಮಾಡಬಹುದು. ನೀವು ಏನು ತಿಳಿದುಕೊಳ್ಳಲು ಬಯಸುತ್ತೀರಿ?',
+  replyId: 'ಮತ ಹಾಕಲು ಮಾನ್ಯ ಫೋಟೋ ID ಅಗತ್ಯ. ಸಾಮಾನ್ಯವಾಗಿ EPIC/Voter ID, Aadhaar, PAN, Driving License ಅಥವಾ Indian Passport ಬಳಸಬಹುದು. ನಿಮ್ಮ ಹೆಸರು ಮತದಾರರ ಪಟ್ಟಿಯಲ್ಲಿ ಇರಬೇಕು.',
+  replyEvm: 'EVM ಬಳಸುವುದು ತುಂಬಾ ಸುಲಭ. ಮತಗಟ್ಟೆಯಲ್ಲಿ ನೀವು ಆಯ್ಕೆ ಮಾಡಿದ ಚಿಹ್ನೆಯ ಪಕ್ಕದ ನೀಲಿ ಬಟನ್ ಒತ್ತಿ. ನಿಮ್ಮ ಮತ ದಾಖಲಾಗಿದೆ ಎಂಬುದನ್ನು ದೃಢೀಕರಿಸುವ ಬೀಪ್ ಶಬ್ದ ಕೇಳಿಸುತ್ತದೆ.',
+  replyVvpat: 'VVPAT ಎಂದರೆ EVMಗೆ ಜೋಡಿಸಲಾದ ಯಂತ್ರ. ನೀವು ಬಟನ್ ಒತ್ತಿದ ನಂತರ ನಿಮ್ಮ ಮತ ತೋರಿಸುವ ಸ್ಲಿಪ್ 7 ಸೆಕೆಂಡುಗಳ ಕಾಲ ಕಾಣುತ್ತದೆ, ನಂತರ ಅದು ಮುಚ್ಚಿದ ಪೆಟ್ಟಿಗೆಯಲ್ಲಿ ಬೀಳುತ್ತದೆ.',
+  replyList: 'ಅಧಿಕೃತ ECI ಪೋರ್ಟಲ್ electoralsearch.eci.gov.in ನಲ್ಲಿ EPIC ಸಂಖ್ಯೆ ಅಥವಾ ವೈಯಕ್ತಿಕ ವಿವರಗಳಿಂದ ಮತದಾರರ ಪಟ್ಟಿಯಲ್ಲಿ ನಿಮ್ಮ ಹೆಸರನ್ನು ಪರಿಶೀಲಿಸಬಹುದು.',
+  replyBooth: 'ಪ್ರಕ್ರಿಯೆ: 1. ಪ್ರವೇಶ ಪರಿಶೀಲನೆ. 2. ಅಧಿಕಾರಿ ನಿಮ್ಮ ID ಪರಿಶೀಲಿಸುತ್ತಾರೆ. 3. ನಿಮ್ಮ ಬೆರಳಿಗೆ ಮಸಿ ಹಾಕಲಾಗುತ್ತದೆ ಮತ್ತು ನೀವು ರಿಜಿಸ್ಟರ್‌ನಲ್ಲಿ ಸಹಿ ಮಾಡುತ್ತೀರಿ. 4. ರಹಸ್ಯ EVM ಕೊಠಡಿಯಲ್ಲಿ ಮತ ಹಾಕುತ್ತೀರಿ. 5. ಶಾಂತವಾಗಿ ಹೊರಬರುತ್ತೀರಿ.',
+  replyTimeline: 'ಚುನಾವಣಾ ಕಾಲರೇಖೆಯಲ್ಲಿ ಸಾಮಾನ್ಯವಾಗಿ ವೇಳಾಪಟ್ಟಿ ಘೋಷಣೆ, ಮತದಾರ ನೋಂದಣಿಯ ಕೊನೆಯ ದಿನಾಂಕ, ಅಭ್ಯರ್ಥಿಗಳ ನಾಮಪತ್ರ, ಪ್ರಚಾರ ಅವಧಿ, ಮತದಾನದ ದಿನ ಮತ್ತು ಫಲಿತಾಂಶ ಘೋಷಣೆ ಇರುತ್ತವೆ. ನಿಖರ ದಿನಾಂಕಗಳಿಗೆ ನಿಮ್ಮ ರಾಜ್ಯದ ಮಾರ್ಗಸೂಚಿಗಳನ್ನು ನೋಡಿ.',
+  replyPolitical: 'ನಾನು ಪಕ್ಷಪಾತರಹಿತ ಮತದಾರ ಶಿಕ್ಷಣ ಸಹಾಯಕ, ಆದ್ದರಿಂದ ಪಕ್ಷಗಳು, ಅಭ್ಯರ್ಥಿಗಳು ಅಥವಾ ಯಾರಿಗೆ ಮತ ಹಾಕಬೇಕು ಎಂಬುದರ ಬಗ್ಗೆ ಅಭಿಪ್ರಾಯ ನೀಡಲು ಸಾಧ್ಯವಿಲ್ಲ. ನನ್ನ ಕೆಲಸ ಮತದಾನ ಪ್ರಕ್ರಿಯೆಯನ್ನು ವಿವರಿಸುವುದು.',
+  replyDefault: 'ನಾನು ಮತದಾರ ಶಿಕ್ಷಣ ಸಹಾಯಕ. ID ಅಗತ್ಯಗಳು, ಮತಗಟ್ಟೆ ಹಂತಗಳು, EVMಗಳು ಅಥವಾ ಮತದಾರರ ಪಟ್ಟಿಯಲ್ಲಿ ಹೆಸರು ಪರಿಶೀಲಿಸುವ ಬಗ್ಗೆ ಕೇಳಬಹುದು.',
+};
+&nbsp;
+const pageTranslations = {
+  English: {
+    locationServices: 'Location Services',
+    nearbyBooths: 'Nearby Booths',
+    mapUnavailable: 'Map Unavailable',
+    mapUnavailableDesc: 'Google Maps API key is missing. Add VITE_GOOGLE_MAPS_KEY in environment variables to enable the interactive map.',
+    waitTime: 'Wait Time:',
+    getDirections: 'Get Directions',
+    booth1Name: 'Government High School, Block A',
+    booth2Name: 'Community Center Hall, Sector 3',
+    booth3Name: 'Primary Health Center, Zone 2',
+    interactiveFlow: 'Interactive Flow',
+    insidePollingBooth: 'Inside the Polling Booth',
+    guideMe: 'Guide Me',
+    guiding: 'Guiding...',
+    walkthroughGuide: 'Walkthrough Guide',
+    readyToLearn: 'Ready to learn?',
+    guideInstruction: "Click 'Guide Me' to run through the polling station process automatically.",
+    entrance: 'Entrance',
+    exit: 'Exit',
+    voting: 'Voting',
+    compartment: 'Compartment',
+    presidingOfficer: 'Presiding Officer',
+    pollingAgents: 'Polling Agents',
+    stepEntranceLabel: 'Entrance Check',
+    stepEntranceDesc: 'Present your slip and keep ID ready.',
+    stepPo1Label: 'Polling Officer 1',
+    stepPo1Desc: 'Checks your name on the electoral roll and verifies your ID.',
+    stepPo2Label: 'Polling Officer 2',
+    stepPo2Desc: 'Marks your left forefinger with indelible ink, asks for your signature on the register, and gives you a voter slip.',
+    stepPo3Label: 'Polling Officer 3',
+    stepPo3Desc: 'Takes your slip and presses a button on the Control Unit to activate the EVM inside the voting compartment.',
+    stepCompartmentLabel: 'Voting Compartment',
+    stepCompartmentDesc: 'Cast your vote secretly on the EVM. Verify the VVPAT slip for 7 seconds.',
+    stepExitLabel: 'Exit',
+    stepExitDesc: 'Leave the polling station quietly.',
+    processOverview: 'Process Overview',
+    electionTimeline: 'Election Timeline',
+    timelineSubtitle: 'A typical schedule for the Indian General Elections.',
+    electionCycle: 'Election Cycle',
+    phaseAnnouncement: 'Announcement of Schedule',
+    phaseNominations: 'Nominations',
+    phaseCampaigning: 'Campaigning',
+    phasePolling: 'Polling Day',
+    phaseCounting: 'Counting &amp; Results',
+    tipAnnouncementTitle: 'Announcement',
+    tipAnnouncementDesc: 'The Election Commission announces the dates and Model Code of Conduct comes into effect.',
+    tipNominationsDesc: 'Candidates file their nomination papers.',
+    tipCampaigningDesc: 'Parties actively campaign. Ends 48 hours before polling begins.',
+    tipPollingDesc: 'Voters cast their votes using EVMs and VVPATs.',
+    tipCountingDesc: 'Votes are counted and final results are declared.',
+  },
+  Tamil: {
+    locationServices: 'இருப்பிட சேவைகள்',
+    nearbyBooths: 'அருகிலுள்ள சாவடிகள்',
+    mapUnavailable: 'வரைபடம் கிடைக்கவில்லை',
+    mapUnavailableDesc: 'Google Maps API key இல்லை. ஊடாடும் வரைபடத்தை இயக்க VITE_GOOGLE_MAPS_KEY ஐ environment variables இல் சேர்க்கவும்.',
+    waitTime: 'காத்திருப்பு நேரம்:',
+    getDirections: 'வழிகளைப் பெறு',
+    booth1Name: 'அரசு மேல்நிலைப் பள்ளி, தொகுதி A',
+    booth2Name: 'சமூக மைய மண்டபம், பிரிவு 3',
+    booth3Name: 'முதன்மை சுகாதார மையம், மண்டலம் 2',
+    interactiveFlow: 'ஊடாடும் ஓட்டம்',
+    insidePollingBooth: 'வாக்குச்சாவடியின் உள்ளே',
+    guideMe: 'எனக்கு வழிகாட்டு',
+    guiding: 'வழிகாட்டுகிறது...',
+    walkthroughGuide: 'நடைமுறை வழிகாட்டி',
+    readyToLearn: 'கற்றுக்கொள்ள தயாரா?',
+    guideInstruction: "'எனக்கு வழிகாட்டு' என்பதைக் கிளிக் செய்து வாக்குச்சாவடி செயல்முறையை தானாகப் பாருங்கள்.",
+    entrance: 'நுழைவு',
+    exit: 'வெளியேறு',
+    voting: 'வாக்களிப்பு',
+    compartment: 'அறை',
+    presidingOfficer: 'தலைமை அதிகாரி',
+    pollingAgents: 'வாக்குச்சாவடி முகவர்கள்',
+    stepEntranceLabel: 'நுழைவு சோதனை',
+    stepEntranceDesc: 'உங்கள் சீட்டை காட்டி ID-ஐ தயாராக வைத்திருக்கவும்.',
+    stepPo1Label: 'வாக்குப்பதிவு அதிகாரி 1',
+    stepPo1Desc: 'வாக்காளர் பட்டியலில் உங்கள் பெயரைச் சரிபார்த்து ID-ஐ உறுதிப்படுத்துவார்.',
+    stepPo2Label: 'வாக்குப்பதிவு அதிகாரி 2',
+    stepPo2Desc: 'உங்கள் இடது ஆள்காட்டி விரலில் அழியாத மை வைத்து, பதிவேட்டில் கையொப்பம் பெற்று, வாக்காளர் சீட்டை வழங்குவார்.',
+    stepPo3Label: 'வாக்குப்பதிவு அதிகாரி 3',
+    stepPo3Desc: 'உங்கள் சீட்டை பெற்று, வாக்கு அறையில் உள்ள EVM-ஐ செயல்படுத்த கட்டுப்பாட்டு அலகில் பொத்தானை அழுத்துவார்.',
+    stepCompartmentLabel: 'வாக்கு அறை',
+    stepCompartmentDesc: 'EVM-ல் ரகசியமாக வாக்களிக்கவும். VVPAT சீட்டை 7 வினாடிகள் சரிபார்க்கவும்.',
+    stepExitLabel: 'வெளியேறு',
+    stepExitDesc: 'வாக்குச்சாவடியை அமைதியாக விட்டு வெளியேறவும்.',
+    processOverview: 'செயல்முறை கண்ணோட்டம்',
+    electionTimeline: 'தேர்தல் காலவரிசை',
+    timelineSubtitle: 'இந்திய பொதுத் தேர்தலுக்கான வழக்கமான அட்டவணை.',
+    electionCycle: 'தேர்தல் சுழற்சி',
+    phaseAnnouncement: 'அட்டவணை அறிவிப்பு',
+    phaseNominations: 'வேட்புமனுக்கள்',
+    phaseCampaigning: 'பிரச்சாரம்',
+    phasePolling: 'வாக்குப்பதிவு நாள்',
+    phaseCounting: 'எண்ணிக்கை மற்றும் முடிவுகள்',
+    tipAnnouncementTitle: 'அறிவிப்பு',
+    tipAnnouncementDesc: 'தேர்தல் ஆணையம் தேதிகளை அறிவிக்கிறது; மாதிரி நடத்தை விதிகள் அமலுக்கு வருகின்றன.',
+    tipNominationsDesc: 'வேட்பாளர்கள் தங்கள் வேட்புமனுக்களை தாக்கல் செய்கிறார்கள்.',
+    tipCampaigningDesc: 'கட்சிகள் பிரச்சாரம் செய்கின்றன. வாக்குப்பதிவு தொடங்க 48 மணி நேரத்திற்கு முன் முடியும்.',
+    tipPollingDesc: 'வாக்காளர்கள் EVM மற்றும் VVPAT மூலம் வாக்களிக்கிறார்கள்.',
+    tipCountingDesc: 'வாக்குகள் எண்ணப்பட்டு இறுதி முடிவுகள் அறிவிக்கப்படுகின்றன.',
+  },
+  Bengali: {
+    locationServices: 'অবস্থান পরিষেবা',
+    nearbyBooths: 'নিকটবর্তী বুথ',
+    mapUnavailable: 'মানচিত্র উপলব্ধ নয়',
+    mapUnavailableDesc: 'Google Maps API key নেই। ইন্টারঅ্যাক্টিভ মানচিত্র চালু করতে environment variables-এ VITE_GOOGLE_MAPS_KEY যোগ করুন।',
+    waitTime: 'অপেক্ষার সময়:',
+    getDirections: 'দিকনির্দেশ পান',
+    booth1Name: 'সরকারি উচ্চ বিদ্যালয়, ব্লক A',
+    booth2Name: 'কমিউনিটি সেন্টার হল, সেক্টর 3',
+    booth3Name: 'প্রাথমিক স্বাস্থ্য কেন্দ্র, জোন 2',
+    interactiveFlow: 'ইন্টারঅ্যাক্টিভ প্রবাহ',
+    insidePollingBooth: 'ভোটকেন্দ্রের ভিতরে',
+    guideMe: 'আমাকে গাইড করুন',
+    guiding: 'গাইড করা হচ্ছে...',
+    walkthroughGuide: 'ধাপে ধাপে নির্দেশিকা',
+    readyToLearn: 'শিখতে প্রস্তুত?',
+    guideInstruction: "'আমাকে গাইড করুন' ক্লিক করলে ভোটকেন্দ্রের প্রক্রিয়া স্বয়ংক্রিয়ভাবে দেখানো হবে।",
+    entrance: 'প্রবেশ',
+    exit: 'বাহির',
+    voting: 'ভোটদান',
+    compartment: 'কক্ষ',
+    presidingOfficer: 'প্রিজাইডিং অফিসার',
+    pollingAgents: 'পোলিং এজেন্ট',
+    stepEntranceLabel: 'প্রবেশ পরীক্ষা',
+    stepEntranceDesc: 'আপনার স্লিপ দেখান এবং ID প্রস্তুত রাখুন।',
+    stepPo1Label: 'পোলিং অফিসার 1',
+    stepPo1Desc: 'ভোটার তালিকায় আপনার নাম পরীক্ষা করেন এবং ID যাচাই করেন।',
+    stepPo2Label: 'পোলিং অফিসার 2',
+    stepPo2Desc: 'আপনার বাঁ হাতের তর্জনীতে অমোচনীয় কালি দেন, রেজিস্টারে সই নেন এবং ভোটার স্লিপ দেন।',
+    stepPo3Label: 'পোলিং অফিসার 3',
+    stepPo3Desc: 'আপনার স্লিপ নেন এবং ভোটকক্ষের EVM সক্রিয় করতে Control Unit-এর বোতাম চাপেন।',
+    stepCompartmentLabel: 'ভোটকক্ষ',
+    stepCompartmentDesc: 'EVM-এ গোপনে ভোট দিন। VVPAT স্লিপ 7 সেকেন্ড যাচাই করুন।',
+    stepExitLabel: 'বাহির',
+    stepExitDesc: 'শান্তভাবে ভোটকেন্দ্র থেকে বেরিয়ে যান।',
+    processOverview: 'প্রক্রিয়া সংক্ষিপ্তসার',
+    electionTimeline: 'নির্বাচন সময়রেখা',
+    timelineSubtitle: 'ভারতীয় সাধারণ নির্বাচনের একটি সাধারণ সময়সূচি।',
+    electionCycle: 'নির্বাচন চক্র',
+    phaseAnnouncement: 'সময়সূচি ঘোষণা',
+    phaseNominations: 'মনোনয়ন',
+    phaseCampaigning: 'প্রচার',
+    phasePolling: 'ভোটের দিন',
+    phaseCounting: 'গণনা ও ফলাফল',
+    tipAnnouncementTitle: 'ঘোষণা',
+    tipAnnouncementDesc: 'নির্বাচন কমিশন তারিখ ঘোষণা করে এবং Model Code of Conduct কার্যকর হয়।',
+    tipNominationsDesc: 'প্রার্থীরা মনোনয়নপত্র জমা দেন।',
+    tipCampaigningDesc: 'দলগুলো সক্রিয়ভাবে প্রচার করে। ভোট শুরু হওয়ার 48 ঘণ্টা আগে শেষ হয়।',
+    tipPollingDesc: 'ভোটাররা EVM এবং VVPAT ব্যবহার করে ভোট দেন।',
+    tipCountingDesc: 'ভোট গণনা করা হয় এবং চূড়ান্ত ফল ঘোষণা করা হয়।',
+  },
+  Kannada: {
+    locationServices: 'ಸ್ಥಳ ಸೇವೆಗಳು',
+    nearbyBooths: 'ಹತ್ತಿರದ ಬೂತ್‌ಗಳು',
+    mapUnavailable: 'ನಕ್ಷೆ ಲಭ್ಯವಿಲ್ಲ',
+    mapUnavailableDesc: 'Google Maps API key ಇಲ್ಲ. ಸಂವಾದಾತ್ಮಕ ನಕ್ಷೆಯನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಲು environment variables ನಲ್ಲಿ VITE_GOOGLE_MAPS_KEY ಸೇರಿಸಿ.',
+    waitTime: 'ಕಾಯುವ ಸಮಯ:',
+    getDirections: 'ದಿಕ್ಕುಗಳನ್ನು ಪಡೆಯಿರಿ',
+    booth1Name: 'ಸರ್ಕಾರಿ ಪ್ರೌಢಶಾಲೆ, ಬ್ಲಾಕ್ A',
+    booth2Name: 'ಸಮುದಾಯ ಕೇಂದ್ರ ಸಭಾಂಗಣ, ಸೆಕ್ಟರ್ 3',
+    booth3Name: 'ಪ್ರಾಥಮಿಕ ಆರೋಗ್ಯ ಕೇಂದ್ರ, ವಲಯ 2',
+    interactiveFlow: 'ಸಂವಾದಾತ್ಮಕ ಹರಿವು',
+    insidePollingBooth: 'ಮತಗಟ್ಟೆಯ ಒಳಗೆ',
+    guideMe: 'ನನಗೆ ಮಾರ್ಗದರ್ಶನ ನೀಡಿ',
+    guiding: 'ಮಾರ್ಗದರ್ಶನ ನೀಡುತ್ತಿದೆ...',
+    walkthroughGuide: 'ಹಂತ ಹಂತದ ಮಾರ್ಗದರ್ಶಿ',
+    readyToLearn: 'ಕಲಿಯಲು ಸಿದ್ಧವೇ?',
+    guideInstruction: "'ನನಗೆ ಮಾರ್ಗದರ್ಶನ ನೀಡಿ' ಕ್ಲಿಕ್ ಮಾಡಿದರೆ ಮತಗಟ್ಟೆ ಪ್ರಕ್ರಿಯೆ ಸ್ವಯಂಚಾಲಿತವಾಗಿ ನಡೆಯುತ್ತದೆ.",
+    entrance: 'ಪ್ರವೇಶ',
+    exit: 'ನಿರ್ಗಮನ',
+    voting: 'ಮತದಾನ',
+    compartment: 'ಕೋಣೆ',
+    presidingOfficer: 'ಅಧ್ಯಕ್ಷಾಧಿಕಾರಿ',
+    pollingAgents: 'ಮತಗಟ್ಟೆ ಏಜೆಂಟ್‌ಗಳು',
+    stepEntranceLabel: 'ಪ್ರವೇಶ ಪರಿಶೀಲನೆ',
+    stepEntranceDesc: 'ನಿಮ್ಮ ಸ್ಲಿಪ್ ತೋರಿಸಿ ಮತ್ತು ID ಸಿದ್ಧವಾಗಿಡಿ.',
+    stepPo1Label: 'ಮತಗಟ್ಟೆ ಅಧಿಕಾರಿ 1',
+    stepPo1Desc: 'ಮತದಾರರ ಪಟ್ಟಿಯಲ್ಲಿ ನಿಮ್ಮ ಹೆಸರನ್ನು ಪರಿಶೀಲಿಸಿ ID ದೃಢೀಕರಿಸುತ್ತಾರೆ.',
+    stepPo2Label: 'ಮತಗಟ್ಟೆ ಅಧಿಕಾರಿ 2',
+    stepPo2Desc: 'ನಿಮ್ಮ ಎಡ ತೋರು ಬೆರಳಿಗೆ ಅಳಿಸಲಾಗದ ಮಸಿ ಹಾಕಿ, ರಿಜಿಸ್ಟರ್‌ನಲ್ಲಿ ಸಹಿ ಪಡೆದು, ಮತದಾರರ ಸ್ಲಿಪ್ ಕೊಡುತ್ತಾರೆ.',
+    stepPo3Label: 'ಮತಗಟ್ಟೆ ಅಧಿಕಾರಿ 3',
+    stepPo3Desc: 'ನಿಮ್ಮ ಸ್ಲಿಪ್ ತೆಗೆದುಕೊಂಡು ಮತದಾನ ಕೋಣೆಯಲ್ಲಿರುವ EVM ಸಕ್ರಿಯಗೊಳಿಸಲು Control Unit ನಲ್ಲಿ ಬಟನ್ ಒತ್ತುತ್ತಾರೆ.',
+    stepCompartmentLabel: 'ಮತದಾನ ಕೋಣೆ',
+    stepCompartmentDesc: 'EVM ನಲ್ಲಿ ರಹಸ್ಯವಾಗಿ ಮತ ಹಾಕಿ. VVPAT ಸ್ಲಿಪ್ ಅನ್ನು 7 ಸೆಕೆಂಡುಗಳ ಕಾಲ ಪರಿಶೀಲಿಸಿ.',
+    stepExitLabel: 'ನಿರ್ಗಮನ',
+    stepExitDesc: 'ಮತಗಟ್ಟೆಯಿಂದ ಶಾಂತವಾಗಿ ಹೊರಬನ್ನಿ.',
+    processOverview: 'ಪ್ರಕ್ರಿಯೆ ಅವಲೋಕನ',
+    electionTimeline: 'ಚುನಾವಣಾ ಕಾಲರೇಖೆ',
+    timelineSubtitle: 'ಭಾರತೀಯ ಸಾಮಾನ್ಯ ಚುನಾವಣೆಗೆ ಸಾಮಾನ್ಯ ವೇಳಾಪಟ್ಟಿ.',
+    electionCycle: 'ಚುನಾವಣೆ ಚಕ್ರ',
+    phaseAnnouncement: 'ವೇಳಾಪಟ್ಟಿ ಘೋಷಣೆ',
+    phaseNominations: 'ನಾಮಪತ್ರಗಳು',
+    phaseCampaigning: 'ಪ್ರಚಾರ',
+    phasePolling: 'ಮತದಾನದ ದಿನ',
+    phaseCounting: 'ಎಣಿಕೆ ಮತ್ತು ಫಲಿತಾಂಶ',
+    tipAnnouncementTitle: 'ಘೋಷಣೆ',
+    tipAnnouncementDesc: 'ಚುನಾವಣಾ ಆಯೋಗವು ದಿನಾಂಕಗಳನ್ನು ಘೋಷಿಸುತ್ತದೆ ಮತ್ತು Model Code of Conduct ಜಾರಿಗೆ ಬರುತ್ತದೆ.',
+    tipNominationsDesc: 'ಅಭ್ಯರ್ಥಿಗಳು ತಮ್ಮ ನಾಮಪತ್ರಗಳನ್ನು ಸಲ್ಲಿಸುತ್ತಾರೆ.',
+    tipCampaigningDesc: 'ಪಕ್ಷಗಳು ಸಕ್ರಿಯವಾಗಿ ಪ್ರಚಾರ ಮಾಡುತ್ತವೆ. ಮತದಾನ ಆರಂಭಕ್ಕೆ 48 ಗಂಟೆಗಳ ಮುಂಚೆ ಮುಗಿಯುತ್ತದೆ.',
+    tipPollingDesc: 'ಮತದಾರರು EVM ಮತ್ತು VVPAT ಬಳಸಿ ಮತ ಹಾಕುತ್ತಾರೆ.',
+    tipCountingDesc: 'ಮತಗಳನ್ನು ಎಣಿಸಿ ಅಂತಿಮ ಫಲಿತಾಂಶಗಳನ್ನು ಘೋಷಿಸಲಾಗುತ್ತದೆ.',
+  },
+};
+&nbsp;
+pageTranslations.Hindi = {
+  ...pageTranslations.English,
+  locationServices: 'स्थान सेवाएं',
+  nearbyBooths: 'नजदीकी बूथ',
+  mapUnavailable: 'मानचित्र उपलब्ध नहीं',
+  mapUnavailableDesc: 'Google Maps API key नहीं है। इंटरैक्टिव मानचित्र के लिए environment variables में VITE_GOOGLE_MAPS_KEY जोड़ें।',
+  waitTime: 'प्रतीक्षा समय:',
+  getDirections: 'दिशा-निर्देश प्राप्त करें',
+  interactiveFlow: 'इंटरैक्टिव प्रवाह',
+  insidePollingBooth: 'मतदान बूथ के अंदर',
+  guideMe: 'मुझे मार्गदर्शन दें',
+  guiding: 'मार्गदर्शन जारी...',
+  walkthroughGuide: 'चरण-दर-चरण मार्गदर्शिका',
+  readyToLearn: 'सीखने के लिए तैयार?',
+  processOverview: 'प्रक्रिया अवलोकन',
+  electionTimeline: 'चुनाव समयरेखा',
+  timelineSubtitle: 'भारतीय आम चुनावों की एक सामान्य अनुसूची।',
+};
+&nbsp;
+pageTranslations.Telugu = {
+  ...pageTranslations.English,
+  locationServices: 'స్థాన సేవలు',
+  nearbyBooths: 'సమీప బూత్‌లు',
+  mapUnavailable: 'మ్యాప్ అందుబాటులో లేదు',
+  waitTime: 'వేచి ఉండే సమయం:',
+  getDirections: 'దిశలు పొందండి',
+  interactiveFlow: 'ఇంటరాక్టివ్ ప్రవాహం',
+  insidePollingBooth: 'పోలింగ్ బూత్ లోపల',
+  guideMe: 'నాకు మార్గనిర్దేశం చేయండి',
+  guiding: 'మార్గనిర్దేశం చేస్తోంది...',
+  walkthroughGuide: 'దశల వారీ మార్గదర్శి',
+  readyToLearn: 'నేర్చుకోవడానికి సిద్ధమా?',
+  processOverview: 'ప్రక్రియ అవలోకనం',
+  electionTimeline: 'ఎన్నికల కాలక్రమం',
+  timelineSubtitle: 'భారత సాధారణ ఎన్నికల కోసం సాధారణ షెడ్యూల్.',
+};
+&nbsp;
+Object.assign(pageTranslations.Hindi, {
+  booth1Name: 'सरकारी उच्च विद्यालय, ब्लॉक A',
+  booth2Name: 'सामुदायिक केंद्र हॉल, सेक्टर 3',
+  booth3Name: 'प्राथमिक स्वास्थ्य केंद्र, ज़ोन 2',
+  guideInstruction: "'मुझे मार्गदर्शन दें' पर क्लिक करके मतदान केंद्र की प्रक्रिया अपने-आप देखें।",
+  entrance: 'प्रवेश',
+  exit: 'निकास',
+  voting: 'मतदान',
+  compartment: 'कक्ष',
+  presidingOfficer: 'पीठासीन अधिकारी',
+  pollingAgents: 'मतदान एजेंट',
+  stepEntranceLabel: 'प्रवेश जांच',
+  stepEntranceDesc: 'अपनी पर्ची दिखाएं और ID तैयार रखें।',
+  stepPo1Label: 'मतदान अधिकारी 1',
+  stepPo1Desc: 'मतदाता सूची में आपका नाम जांचता है और आपकी ID सत्यापित करता है।',
+  stepPo2Label: 'मतदान अधिकारी 2',
+  stepPo2Desc: 'आपकी बाईं तर्जनी पर अमिट स्याही लगाता है, रजिस्टर पर हस्ताक्षर करवाता है और मतदाता पर्ची देता है।',
+  stepPo3Label: 'मतदान अधिकारी 3',
+  stepPo3Desc: 'आपकी पर्ची लेकर मतदान कक्ष में EVM सक्रिय करने के लिए Control Unit का बटन दबाता है।',
+  stepCompartmentLabel: 'मतदान कक्ष',
+  stepCompartmentDesc: 'EVM पर गुप्त रूप से वोट डालें। VVPAT पर्ची को 7 सेकंड तक जांचें।',
+  stepExitLabel: 'निकास',
+  stepExitDesc: 'मतदान केंद्र से शांतिपूर्वक बाहर निकलें।',
+  electionCycle: 'चुनाव चक्र',
+  phaseAnnouncement: 'कार्यक्रम की घोषणा',
+  phaseNominations: 'नामांकन',
+  phaseCampaigning: 'प्रचार',
+  phasePolling: 'मतदान दिवस',
+  phaseCounting: 'गिनती और परिणाम',
+  tipAnnouncementTitle: 'घोषणा',
+  tipAnnouncementDesc: 'चुनाव आयोग तारीखों की घोषणा करता है और आदर्श आचार संहिता लागू हो जाती है।',
+  tipNominationsDesc: 'उम्मीदवार अपने नामांकन पत्र दाखिल करते हैं।',
+  tipCampaigningDesc: 'पार्टियां प्रचार करती हैं। मतदान शुरू होने से 48 घंटे पहले प्रचार समाप्त होता है।',
+  tipPollingDesc: 'मतदाता EVM और VVPAT का उपयोग करके वोट डालते हैं।',
+  tipCountingDesc: 'वोटों की गिनती होती है और अंतिम परिणाम घोषित किए जाते हैं।',
+});
+&nbsp;
+Object.assign(pageTranslations.Telugu, {
+  booth1Name: 'ప్రభుత్వ ఉన్నత పాఠశాల, బ్లాక్ A',
+  booth2Name: 'కమ్యూనిటీ సెంటర్ హాల్, సెక్టార్ 3',
+  booth3Name: 'ప్రాథమిక ఆరోగ్య కేంద్రం, జోన్ 2',
+  mapUnavailableDesc: 'Google Maps API key లేదు. ఇంటరాక్టివ్ మ్యాప్ కోసం environment variables లో VITE_GOOGLE_MAPS_KEY జోడించండి.',
+  guideInstruction: "'నాకు మార్గనిర్దేశం చేయండి' క్లిక్ చేస్తే పోలింగ్ స్టేషన్ ప్రక్రియ స్వయంచాలకంగా చూపబడుతుంది.",
+  entrance: 'ప్రవేశం',
+  exit: 'నిష్క్రమణ',
+  voting: 'ఓటింగ్',
+  compartment: 'గది',
+  presidingOfficer: 'ప్రిసైడింగ్ అధికారి',
+  pollingAgents: 'పోలింగ్ ఏజెంట్లు',
+  stepEntranceLabel: 'ప్రవేశ తనిఖీ',
+  stepEntranceDesc: 'మీ స్లిప్ చూపించి ID సిద్ధంగా ఉంచండి.',
+  stepPo1Label: 'పోలింగ్ అధికారి 1',
+  stepPo1Desc: 'ఓటరు జాబితాలో మీ పేరు చూసి మీ IDను ధృవీకరిస్తారు.',
+  stepPo2Label: 'పోలింగ్ అధికారి 2',
+  stepPo2Desc: 'మీ ఎడమ చూపుడు వేలికి చెరగని సిరా వేసి, రిజిస్టర్‌లో సంతకం తీసుకుని, ఓటర్ స్లిప్ ఇస్తారు.',
+  stepPo3Label: 'పోలింగ్ అధికారి 3',
+  stepPo3Desc: 'మీ స్లిప్ తీసుకుని, ఓటింగ్ గదిలోని EVMను సక్రియం చేయడానికి Control Unit బటన్ నొక్కుతారు.',
+  stepCompartmentLabel: 'ఓటింగ్ గది',
+  stepCompartmentDesc: 'EVMపై రహస్యంగా ఓటు వేయండి. VVPAT స్లిప్‌ను 7 సెకన్లు పరిశీలించండి.',
+  stepExitLabel: 'నిష్క్రమణ',
+  stepExitDesc: 'పోలింగ్ స్టేషన్ నుండి ప్రశాంతంగా బయటకు రండి.',
+  electionCycle: 'ఎన్నికల చక్రం',
+  phaseAnnouncement: 'షెడ్యూల్ ప్రకటన',
+  phaseNominations: 'నామినేషన్లు',
+  phaseCampaigning: 'ప్రచారం',
+  phasePolling: 'ఓటింగ్ రోజు',
+  phaseCounting: 'లెక్కింపు మరియు ఫలితాలు',
+  tipAnnouncementTitle: 'ప్రకటన',
+  tipAnnouncementDesc: 'ఎన్నికల సంఘం తేదీలను ప్రకటిస్తుంది మరియు Model Code of Conduct అమల్లోకి వస్తుంది.',
+  tipNominationsDesc: 'అభ్యర్థులు తమ నామినేషన్ పత్రాలు దాఖలు చేస్తారు.',
+  tipCampaigningDesc: 'పార్టీలు ప్రచారం చేస్తాయి. పోలింగ్ ప్రారంభానికి 48 గంటల ముందు ప్రచారం ముగుస్తుంది.',
+  tipPollingDesc: 'ఓటర్లు EVMలు మరియు VVPATలను ఉపయోగించి ఓటు వేస్తారు.',
+  tipCountingDesc: 'ఓట్లు లెక్కించి తుది ఫలితాలు ప్రకటిస్తారు.',
+});
+&nbsp;
+Object.entries(pageTranslations).forEach(([language, values]) =&gt; {
+  translations[language] = { ...translations[language], ...values };
+});
+&nbsp;
+export function getTranslation(language, key, params = {}) {
+  const value = translations[language]?.[key] || <span class="branch-1 cbranch-no" title="branch not covered" >translations.English[key] </span>|| <span class="branch-2 cbranch-no" title="branch not covered" >key;</span>
+  return Object.entries(params).reduce(
+<span class="fstat-no" title="function not covered" >    (t</span>ext, [name, replacement]) =&gt; <span class="cstat-no" title="statement not covered" >text.replaceAll(`{{${name}}}`, replacement),</span>
+    value
+  );
+}
+&nbsp;</pre></td></tr></table></pre>
+
+                <div class='push'></div><!-- for sticky footer -->
+            </div><!-- /wrapper -->
+            <div class='footer quiet pad2 space-top1 center small'>
+                Code coverage generated by
+                <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
+                at 2026-04-26T03:46:15.693Z
+            </div>
+        <script src="../../prettify.js"></script>
+        <script>
+            window.onload = function () {
+                prettyPrint();
+            };
+        </script>
+        <script src="../../sorter.js"></script>
+        <script src="../../block-navigation.js"></script>
+    </body>
+</html>
+    
