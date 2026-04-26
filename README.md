@@ -37,6 +37,45 @@ The core logic revolves around **Contextual AI Personalization**. Instead of a o
 - **Frontend**: React.js (Vite), Tailwind CSS
 - **AI Integration**: Google GenAI SDK (Gemini 2.0 Flash)
 - **Maps**: Google Maps JS API
+- **Backend/Storage**: Firebase (Auth, Firestore, Storage)
+- **Deployment**: Google Cloud Run & Cloud Build
+
+## 🤖 AI Tool Usage Documentation (Submission Essentials)
+
+### 1. Which tools were used & Why they were selected
+- **Anti-Gravity (Agentic IDE)**: Used as the primary pair-programming agent to orchestrate complex architectural changes, write tests, and resolve tricky styling and accessibility bugs automatically.
+- **Gemini (2.0 Flash)**: Integrated directly into the app for the core conversational AI logic, chosen for its fast inference and deep understanding of complex system instructions.
+- **Firebase**: Selected for robust persistent user data, conversation history tracking, and asset storage (Firestore, Auth, Storage).
+- **Cloud Run / Google Cloud**: Selected as the primary hosting and containerization platform to ensure a scalable and reliable production deployment.
+
+### 2. How prompts evolved
+Initially, prompts for the Gemini API integration were generic (e.g., "Answer voter questions"). However, this led to overly verbose or non-specific answers. The prompts evolved into a **Contextual AI Personalization** system. A dynamic global state (`ProfileContext`) was built to inject highly constrained `systemInstruction`s based on user demographics. Prompts were refined to include strict negative constraints (e.g., "Never skip any step", "Do NOT explain what EVM is from scratch") and mandatory inclusion facts (e.g., "ALWAYS say YES, all booths are mandated to have ramps") to guarantee deterministic, safe, and accurate responses.
+
+### 3. What GenAI handled vs what humans designed
+- **GenAI Handled**: 
+  - Real-time generation of conversational, non-partisan responses to user queries via the Gemini API.
+  - Rapid scaffolding of unit tests (Vitest, React Testing Library) to maximize test coverage.
+  - Automated refinement of accessibility contrast ratios and semantic ARIA HTML attributes.
+- **Humans Designed**:
+  - The application architecture, responsive UI/UX design, and component hierarchy.
+  - The rigid context framework, personas, and safety rules that securely guide the Gemini API.
+  - The deep integration logic tying together React Contexts, Firebase persistent storage, and the Google Maps component.
 
 ---
 *Developed for the Google Hackathon Challenge.*
+
+## 🔗 Live Demo
+[Add your Cloud Run URL here after deployment]
+
+## 📦 Setup Instructions
+1. Clone the repo
+2. Run `npm install`
+3. Add `.env` file with:
+   ```env
+   VITE_GEMINI_API_KEY=your_key
+   VITE_GOOGLE_MAPS_KEY=your_key
+   VITE_FIREBASE_API_KEY=your_key
+   # Add other Firebase config keys as needed
+   ```
+4. Run `npm run dev`
+5. Run `npm run test` for tests
