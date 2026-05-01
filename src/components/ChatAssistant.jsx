@@ -92,15 +92,16 @@ export default function ChatAssistant({ isFullScreen = true }) {
             <div className="flex flex-col gap-2">
               {config.quickPrompts.map((prompt) => {
                 const promptText = prompt.text || prompt;
+                const translatedText = t(promptText);
                 const promptIntent = prompt.intent || null;
                 return (
                 <button
                   key={promptText}
                   type="button"
-                  onClick={() => submitMessage({ intent: promptIntent, text: promptText })}
+                  onClick={() => submitMessage({ intent: promptIntent, text: translatedText })}
                   className="rounded-xl border border-navy/10 bg-white px-4 py-3 text-left text-sm font-medium text-navy transition hover:-translate-y-0.5 hover:shadow-md hover:border-saffron focus:outline-none focus:ring-2 focus:ring-saffron"
                 >
-                  {promptText}
+                  {translatedText}
                 </button>
                 );
               })}

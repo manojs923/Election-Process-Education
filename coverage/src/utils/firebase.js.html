@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">22.72% </span>
+                <span class="strong">36.36% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>15/66</span>
+                <span class='fraction'>24/66</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">6.25% </span>
+                <span class="strong">9.37% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>2/32</span>
+                <span class='fraction'>3/32</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">23.43% </span>
+                <span class="strong">37.5% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>15/64</span>
+                <span class='fraction'>24/64</span>
             </div>
         
             
@@ -220,32 +220,32 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -352,33 +352,33 @@ let db = null;
 let storage = null;
 &nbsp;
 // Only initialize if we have the minimum required config so the local demo doesn't crash
-<span class="missing-if-branch" title="if path not taken" >I</span>if (firebaseConfig.apiKey &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >firebaseConfig.apiKey !== 'demo_key')</span> {
-<span class="cstat-no" title="statement not covered" >  try {</span>
-<span class="cstat-no" title="statement not covered" >    app = initializeApp(firebaseConfig);</span>
+if (firebaseConfig.apiKey &amp;&amp; firebaseConfig.apiKey !== 'demo_key') {
+  try {
+    app = initializeApp(firebaseConfig);
     
     // Initialize Analytics and log app payload
-<span class="cstat-no" title="statement not covered" >    analytics = getAnalytics(app);</span>
-<span class="cstat-no" title="statement not covered" >    logEvent(analytics, 'app_loaded');</span>
+    analytics = getAnalytics(app);
+    logEvent(analytics, 'app_loaded');
     
     // Initialize Auth and sign in anonymously immediately
-<span class="cstat-no" title="statement not covered" >    auth = getAuth(app);</span>
-<span class="cstat-no" title="statement not covered" >    signInAnonymously(auth).catch(<span class="fstat-no" title="function not covered" >(e</span>rror) =&gt; {</span>
+    auth = getAuth(app);
+    signInAnonymously(auth).catch(<span class="fstat-no" title="function not covered" >(e</span>rror) =&gt; {
 <span class="cstat-no" title="statement not covered" >      console.warn('Anonymous auth failed. Using local state.', error);</span>
     });
 &nbsp;
     // Initialize Firestore for user state persistence
-<span class="cstat-no" title="statement not covered" >    db = getFirestore(app);</span>
+    db = getFirestore(app);
     
     // Initialize Storage
-<span class="cstat-no" title="statement not covered" >    storage = getStorage(app);</span>
+    storage = getStorage(app);
     
-<span class="cstat-no" title="statement not covered" >    console.log('Firebase Services Initialized (Auth, Analytics, Firestore, Storage)');</span>
-<span class="cstat-no" title="statement not covered" >    console.info("Firestore + Auth + Analytics + Storage initialized");</span>
+    console.log('Firebase Services Initialized (Auth, Analytics, Firestore, Storage)');
+    console.info("Firestore + Auth + Analytics + Storage initialized");
   } catch (err) {
 <span class="cstat-no" title="statement not covered" >    console.error('Firebase initialization error', err);</span>
   }
-} else {
-  console.log('Firebase running in DEMO mode (Services mocked)');
+} else <span class="missing-if-branch" title="else path not taken" >E</span>{
+<span class="cstat-no" title="statement not covered" >  console.log('Firebase running in DEMO mode (Services mocked)');</span>
 }
 &nbsp;
 export const trackRoute = <span class="fstat-no" title="function not covered" >()</span> =&gt; {
@@ -469,7 +469,7 @@ export { app, analytics, auth, db, storage };
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-26T03:46:15.693Z
+                at 2026-05-01T18:58:50.448Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

@@ -1,47 +1,47 @@
 import React, { useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 
-const phases = [
-  {
-    icon: "📋",
-    title: "Election Announcement",
-    date: "Day 1",
-    voterAction: "Check your name on electoral roll at voters.eci.gov.in",
-    deadline: "Immediately after announcement"
-  },
-  {
-    icon: "📝",
-    title: "Voter Registration Deadline",
-    date: "Day 7",
-    voterAction: "Submit Form 6 online if not registered",
-    deadline: "7 days after announcement"
-  },
-  {
-    icon: "🏃",
-    title: "Campaign Period",
-    date: "Day 8–26",
-    voterAction: "Research candidates, attend public meetings",
-    deadline: "Ends 48 hours before voting"
-  },
-  {
-    icon: "🗳️",
-    title: "Voting Day",
-    date: "Day 27",
-    voterAction: "Carry valid ID, visit booth 7am–6pm",
-    deadline: "Single day"
-  },
-  {
-    icon: "📊",
-    title: "Result Declaration",
-    date: "Day 30",
-    voterAction: "Check results at eci.gov.in",
-    deadline: "3 days after voting"
-  }
-];
-
 export default function Timeline() {
   const { t } = useLanguage();
   const [activePhase, setActivePhase] = useState(null);
+
+  const phases = [
+    {
+      icon: "📋",
+      title: t('tlAnnouncement'),
+      date: t('tlDay1'),
+      voterAction: t('tlActionAnnouncement'),
+      deadline: t('tlDeadlineAnnouncement')
+    },
+    {
+      icon: "📝",
+      title: t('tlRegistration'),
+      date: t('tlDay7'),
+      voterAction: t('tlActionRegistration'),
+      deadline: t('tlDeadlineRegistration')
+    },
+    {
+      icon: "🏃",
+      title: t('tlCampaign'),
+      date: t('tlDay8to26'),
+      voterAction: t('tlActionCampaign'),
+      deadline: t('tlDeadlineCampaign')
+    },
+    {
+      icon: "🗳️",
+      title: t('tlVoting'),
+      date: t('tlDay27'),
+      voterAction: t('tlActionVoting'),
+      deadline: t('tlDeadlineVoting')
+    },
+    {
+      icon: "📊",
+      title: t('tlResult'),
+      date: t('tlDay30'),
+      voterAction: t('tlActionResult'),
+      deadline: t('tlDeadlineResult')
+    }
+  ];
 
   return (
     <section className="glass-card rounded-[2rem] border-navy/10 bg-white p-6 md:p-8 shadow-sm">
