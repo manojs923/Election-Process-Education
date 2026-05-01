@@ -15,6 +15,11 @@ const ai = apiKey
     })
   : null;
 
+function isLikelyWrongLanguage(replyText, language) {
+  if (!replyText || language === 'English') return false;
+  return /^[\x00-\x7F\s.,!?'"():;%\-+/[\]{}@#$^&*=<>|`~_]+$/.test(replyText);
+}
+
 function buildWelcomeMessage(userProfile) {
   if (!userProfile) {
     return getTranslation('English', 'welcomeDefault');
@@ -130,15 +135,8 @@ export async function getAssistantReply(message, userProfile, intent) {
   const fallbackReply = buildLocalReply(safeMessage, userProfile, intent);
   const defaultReply = getTranslation(language, 'replyDefault');
 
-  // Quick prompt buttons carry an explicit intent, so keep those replies stable
-  // instead of letting the model reinterpret a known canned question.
-  if (intent) {
-    return fallbackReply;
-  }
-
-  // If we already matched a known election-help pattern locally, prefer that
-  // deterministic answer and reserve Gemini for broader freeform questions.
-  if (fallbackReply !== defaultReply) {
+  // If Gemini is not configured, use local deterministic replies
+  if (!ai || !isKeyValid) {
     return fallbackReply;
   }
 
@@ -153,8 +151,11 @@ export async function getAssistantReply(message, userProfile, intent) {
 User Profile:
 - Voter Type: ${userProfile.voterType}
 - Preferred Language: ${userProfile.language}
-If the preferred language is not English, 
-reply in ${userProfile.language}.` : '';
+LANGUAGE RULES:
+- Reply entirely in ${userProfile.language}
+- Do not reply in English unless the preferred language is English
+- Translate examples, bullet points, and step-by-step instructions too
+- Keep the wording natural for native ${userProfile.language} readers` : '';
 
     const systemInstruction = `CRITICAL RULE: NEVER discuss 
 political parties or candidates. If asked who to vote for, 
@@ -172,7 +173,7 @@ ${extraContext}`;
       model: 'gemini-2.5-flash',
       contents: [{ 
         role: 'user', 
-        parts: [{ text: safeMessage }] 
+        parts: [{ text: `Answer only in ${language}.\n\nUser question: ${safeMessage}` }] 
       }],
       config: {
         systemInstruction: systemInstruction,
@@ -191,7 +192,11 @@ ${extraContext}`;
       replyText = response.trim();
     }
     
-    return replyText || fallbackReply;
+    if (!replyText) {
+      return fallbackReply;
+    }
+
+    return isLikelyWrongLanguage(replyText, language) ? fallbackReply : replyText;
 
   } catch (err) {
     console.error("Gemini Error:", err);

@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Dashboard from './pages/Dashboard';
 import Entry from './pages/Entry';
 import { useLanguage } from './contexts/LanguageContext';
+import { useProfile } from './contexts/ProfileContext';
 
 const navItems = [
   { to: '/dashboard', labelKey: 'dashboard' },
@@ -38,6 +39,7 @@ function getVoterTypeKey(profile) {
 export default function App() {
   const [userProfile, setUserProfile] = useState(loadProfile);
   const { language, setLanguage, t } = useLanguage();
+  const { voterProfile, setVoterProfile } = useProfile();
 
   const updateLanguage = (nextLanguage) => {
     setLanguage(nextLanguage);
@@ -52,6 +54,26 @@ export default function App() {
     }
     window.localStorage.removeItem('voter-profile');
   }, [userProfile]);
+
+  useEffect(() => {
+    if (userProfile?.language && userProfile.language !== language) {
+      setLanguage(userProfile.language);
+    }
+  }, [language, setLanguage, userProfile?.language]);
+
+  useEffect(() => {
+    if (!userProfile) return;
+
+    if (
+      voterProfile?.voterType !== userProfile.voterType ||
+      voterProfile?.language !== userProfile.language
+    ) {
+      setVoterProfile({
+        voterType: userProfile.voterType || null,
+        language: userProfile.language || 'English',
+      });
+    }
+  }, [setVoterProfile, userProfile, voterProfile?.language, voterProfile?.voterType]);
 
   return (
     <div className="min-h-screen bg-offwhite text-navy font-body">

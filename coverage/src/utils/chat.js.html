@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">53.57% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>43/86</span>
+                <span class='fraction'>45/84</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">43.13% </span>
+                <span class="strong">46.07% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>44/102</span>
+                <span class='fraction'>47/102</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50.58% </span>
+                <span class="strong">54.21% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>43/85</span>
+                <span class='fraction'>45/83</span>
             </div>
         
             
@@ -258,14 +258,7 @@
 <a name='L193'></a><a href='#L193'>193</a>
 <a name='L194'></a><a href='#L194'>194</a>
 <a name='L195'></a><a href='#L195'>195</a>
-<a name='L196'></a><a href='#L196'>196</a>
-<a name='L197'></a><a href='#L197'>197</a>
-<a name='L198'></a><a href='#L198'>198</a>
-<a name='L199'></a><a href='#L199'>199</a>
-<a name='L200'></a><a href='#L200'>200</a>
-<a name='L201'></a><a href='#L201'>201</a>
-<a name='L202'></a><a href='#L202'>202</a>
-<a name='L203'></a><a href='#L203'>203</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L196'></a><a href='#L196'>196</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -398,19 +391,12 @@
 <span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">10x</span>
@@ -435,7 +421,7 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -461,8 +447,8 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -599,20 +585,13 @@ export async function getAssistantReply(message, userProfile, intent) {
   const fallbackReply = buildLocalReply(safeMessage, userProfile, intent);
   const defaultReply = getTranslation(language, 'replyDefault');
 &nbsp;
-  // Quick prompt buttons carry an explicit intent, so keep those replies stable
-  // instead of letting the model reinterpret a known canned question.
-  if (intent) {
-    return fallbackReply;
+  // If Gemini is not configured, use local deterministic replies
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (!ai || !isKeyValid) {
+<span class="cstat-no" title="statement not covered" >    return fallbackReply;</span>
   }
 &nbsp;
-  // If we already matched a known election-help pattern locally, prefer that
-  // deterministic answer and reserve Gemini for broader freeform questions.
-  <span class="missing-if-branch" title="else path not taken" >E</span>if (fallbackReply !== defaultReply) {
-    return fallbackReply;
-  }
-&nbsp;
-<span class="cstat-no" title="statement not covered" >  try {</span>
-    const voterType = <span class="cstat-no" title="statement not covered" >userProfile?.voterType || 'first-time';</span>
+  try {
+    const voterType = userProfile?.voterType || <span class="branch-1 cbranch-no" title="branch not covered" >'first-time';</span>
     
     // USE profileConfig from ProfileContext - NOT hardcoded prompts
     const profileInstruction = profileConfig[voterType]?.geminiContext 
@@ -623,7 +602,7 @@ User Profile:
 - Voter Type: ${userProfile.voterType}
 - Preferred Language: ${userProfile.language}
 If the preferred language is not English, 
-reply in ${userProfile.language}.` : '';
+reply in ${userProfile.language}.` : <span class="branch-1 cbranch-no" title="branch not covered" >'';</span>
 &nbsp;
     const systemInstruction = `CRITICAL RULE: NEVER discuss 
 political parties or candidates. If asked who to vote for, 
@@ -633,11 +612,11 @@ ${profileInstruction}
 &nbsp;
 ${extraContext}`;
 &nbsp;
-    <span class="missing-if-branch" title="if path not taken" >I</span>if (!ai || <span class="branch-1 cbranch-no" title="branch not covered" >!isKeyValid)</span> {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (!ai || !isKeyValid) {
 <span class="cstat-no" title="statement not covered" >      return fallbackReply;</span>
     }
 &nbsp;
-    const response = <span class="cstat-no" title="statement not covered" >await ai.models.generateContent({</span>
+    const response = await ai.models.generateContent({
       model: 'gemini-2.5-flash',
       contents: [{ 
         role: 'user', 
@@ -663,8 +642,8 @@ ${extraContext}`;
 <span class="cstat-no" title="statement not covered" >    return replyText || fallbackReply;</span>
 &nbsp;
   } catch (err) {
-<span class="cstat-no" title="statement not covered" >    console.error("Gemini Error:", err);</span>
-<span class="cstat-no" title="statement not covered" >    return fallbackReply;</span>
+    console.error("Gemini Error:", err);
+    return fallbackReply;
   }
 }
 &nbsp;
@@ -676,7 +655,7 @@ export { buildWelcomeMessage };
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-05-01T18:58:50.448Z
+                at 2026-05-01T19:43:08.621Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

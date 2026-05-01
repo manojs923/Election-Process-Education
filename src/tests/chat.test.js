@@ -38,6 +38,17 @@ describe("Chat fallback replies", () => {
     expect(reply).toContain("Driving License");
   });
 
+  it("returns the translated fallback reply in Hindi when Hindi is selected", async () => {
+    const reply = await getAssistantReply(
+      "What do I bring to vote?",
+      { voterType: "first-time", language: "Hindi" },
+      "bring",
+    );
+
+    expect(reply).toContain("मान्य");
+    expect(reply).not.toContain("You will need a valid Photo ID");
+  });
+
   it("recognizes document-style phrasing without an explicit intent", async () => {
     const reply = await getAssistantReply(
       "What documents should I carry to vote?",

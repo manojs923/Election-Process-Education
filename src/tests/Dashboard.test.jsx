@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import Dashboard from '../pages/Dashboard';
+import { useEffect } from 'react';
 import { describe, it, expect, vi } from 'vitest';
 
 vi.mock('../components/Timeline', () => ({
@@ -23,11 +24,26 @@ const mockUserProfile = {
 
 import { ProfileProvider } from '../contexts/ProfileContext';
 
+import { LanguageProvider, useLanguage } from '../contexts/LanguageContext';
+
+function LanguageSetter({ language }) {
+  const { setLanguage } = useLanguage();
+
+  useEffect(() => {
+    setLanguage(language);
+  }, [language, setLanguage]);
+
+  return null;
+}
+
 describe('Dashboard Component', () => {
-  const renderWithProviders = (ui) => {
+  const renderWithProviders = (ui, language = 'English') => {
     return render(
       <BrowserRouter>
-        <ProfileProvider>{ui}</ProfileProvider>
+        <LanguageProvider>
+          <LanguageSetter language={language} />
+          <ProfileProvider>{ui}</ProfileProvider>
+        </LanguageProvider>
       </BrowserRouter>
     );
   };
@@ -56,5 +72,11 @@ describe('Dashboard Component', () => {
     renderWithProviders(<Dashboard tab="booth" userProfile={mockUserProfile} />);
     expect(screen.getByTestId('booth-mock')).toBeInTheDocument();
   });
-});
 
+  it('renders translated dashboard content for the selected language', () => {
+    renderWithProviders(<Dashboard userProfile={mockUserProfile} />, 'Bengali');
+    expect(screen.getByText('আজ কী করবেন')).toBeInTheDocument();
+    expect(screen.getByText('ভোটার তালিকা দেখুন')).toBeInTheDocument();
+    expect(screen.getByText('সকাল ৭টা - সন্ধ্যা ৬টা')).toBeInTheDocument();
+  });
+});

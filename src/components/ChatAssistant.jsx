@@ -42,7 +42,7 @@ export default function ChatAssistant({ isFullScreen = true }) {
     const value = prompt?.text ?? input;
     if (!value.trim() || isTyping) return;
 
-    const newMessages = [...messages, { role: 'user', text: value }];
+    const newMessages = [...messages, { role: 'user', text: value, language }];
     setMessages(newMessages);
     setInput('');
     setIsTyping(true);
@@ -52,7 +52,7 @@ export default function ChatAssistant({ isFullScreen = true }) {
 
     const reply = await getAssistantReply(value, { voterType: voterProfile?.voterType, language }, prompt?.intent);
     
-    const finalMessages = [...newMessages, { role: 'assistant', text: reply }];
+    const finalMessages = [...newMessages, { role: 'assistant', text: reply, language }];
     setMessages(finalMessages);
     setIsTyping(false);
     
