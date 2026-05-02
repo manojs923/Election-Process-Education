@@ -35,6 +35,12 @@ export const translations = {
     thinking: 'Expert is thinking',
     askPlaceholder: 'Ask a question...',
     send: 'Send',
+    languageSelector: 'Select language',
+    primaryNavigation: 'Primary navigation',
+    messageHistory: 'Assistant conversation history',
+    questionInput: 'Ask the voter education assistant a question',
+    nearbyBoothsList: 'Nearby polling booths',
+    selectBooth: 'Select polling booth',
     promptId: 'What ID do I need to vote?',
     promptBring: "What do I bring to vote?",
     promptEvm: 'How does the EVM work?',
@@ -1047,6 +1053,51 @@ Object.assign(translations.Bengali, {
 Object.assign(translations.Kannada, {
   replyVoterId: 'Voter ID, ಇದನ್ನು EPIC ಕಾರ್ಡ್ ಎಂದೂ ಕರೆಯಲಾಗುತ್ತದೆ, ನಿಮ್ಮ ಚುನಾವಣಾ ಗುರುತಿನ ಚೀಟಿ. ಇದು ಮತಗಟ್ಟೆ ಅಧಿಕಾರಿಗಳಿಗೆ ನಿಮ್ಮ ಗುರುತನ್ನು ಪರಿಶೀಲಿಸಲು ಸಹಾಯ ಮಾಡುತ್ತದೆ, ಆದರೆ ನಿಮ್ಮ ಹೆಸರು ಮತದಾರರ ಪಟ್ಟಿಯಲ್ಲಿಯೂ ಇರಬೇಕು.',
   replyBring: 'ಮತ ಹಾಕಲು ಮಾನ್ಯ ಫೋಟೋ ID ಅಗತ್ಯ. ಸಾಮಾನ್ಯವಾಗಿ EPIC/Voter ID, Aadhaar, PAN, Driving License ಅಥವಾ Indian Passport ಬಳಸಬಹುದು. ನಿಮ್ಮ ಹೆಸರು ಮತದಾರರ ಪಟ್ಟಿಯಲ್ಲಿ ಇರಬೇಕು.',
+});
+
+Object.assign(translations.Hindi, {
+  languageSelector: 'भाषा चुनें',
+  primaryNavigation: 'मुख्य नेविगेशन',
+  messageHistory: 'सहायक बातचीत इतिहास',
+  questionInput: 'मतदाता शिक्षा सहायक से प्रश्न पूछें',
+  nearbyBoothsList: 'नजदीकी मतदान केंद्रों की सूची',
+  selectBooth: 'मतदान केंद्र चुनें',
+});
+
+Object.assign(translations.Telugu, {
+  languageSelector: 'భాషను ఎంపిక చేయండి',
+  primaryNavigation: 'ముఖ్య నావిగేషన్',
+  messageHistory: 'సహాయక సంభాషణ చరిత్ర',
+  questionInput: 'ఓటరు విద్య సహాయకుడిని ఒక ప్రశ్న అడగండి',
+  nearbyBoothsList: 'సమీప పోలింగ్ బూత్‌ల జాబితా',
+  selectBooth: 'పోలింగ్ బూత్‌ను ఎంపిక చేయండి',
+});
+
+Object.assign(translations.Tamil, {
+  languageSelector: 'மொழியை தேர்வு செய்யவும்',
+  primaryNavigation: 'முக்கிய வழிசெலுத்தல்',
+  messageHistory: 'உதவியாளர் உரையாடல் வரலாறு',
+  questionInput: 'வாக்காளர் கல்வி உதவியாளரிடம் ஒரு கேள்வி கேளுங்கள்',
+  nearbyBoothsList: 'அருகிலுள்ள வாக்குச்சாவடிகள் பட்டியல்',
+  selectBooth: 'வாக்குச்சாவடியைத் தேர்வு செய்யவும்',
+});
+
+Object.assign(translations.Bengali, {
+  languageSelector: 'ভাষা নির্বাচন করুন',
+  primaryNavigation: 'প্রধান নেভিগেশন',
+  messageHistory: 'সহায়কের কথোপকথনের ইতিহাস',
+  questionInput: 'ভোটার শিক্ষা সহায়ককে একটি প্রশ্ন করুন',
+  nearbyBoothsList: 'নিকটবর্তী ভোটকেন্দ্রের তালিকা',
+  selectBooth: 'ভোটকেন্দ্র নির্বাচন করুন',
+});
+
+Object.assign(translations.Kannada, {
+  languageSelector: 'ಭಾಷೆಯನ್ನು ಆಯ್ಕೆ ಮಾಡಿ',
+  primaryNavigation: 'ಮುಖ್ಯ ನಾವಿಗೇಶನ್',
+  messageHistory: 'ಸಹಾಯಕ ಸಂಭಾಷಣೆ ಇತಿಹಾಸ',
+  questionInput: 'ಮತದಾರ ಶಿಕ್ಷಣ ಸಹಾಯಕನಿಗೆ ಒಂದು ಪ್ರಶ್ನೆ ಕೇಳಿ',
+  nearbyBoothsList: 'ಹತ್ತಿರದ ಮತಗಟ್ಟೆಗಳ ಪಟ್ಟಿ',
+  selectBooth: 'ಮತಗಟ್ಟೆಯನ್ನು ಆಯ್ಕೆ ಮಾಡಿ',
 });
 
 Object.entries(pageTranslations).forEach(([language, values]) => {

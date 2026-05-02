@@ -35,7 +35,10 @@ export default function FindBooth() {
 
   const handleGetDirections = (booth) => {
     const url = `https://www.google.com/maps/dir/?api=1&destination=${booth.lat},${booth.lng}&travelmode=walking`;
-    window.open(url, '_blank');
+    const directionsWindow = window.open(url, '_blank', 'noopener,noreferrer');
+    if (directionsWindow) {
+      directionsWindow.opener = null;
+    }
   };
 
   useEffect(() => {
@@ -88,14 +91,24 @@ export default function FindBooth() {
       <section className="glass-card rounded-[2rem] border-navy/10 bg-white p-6 shadow-sm flex flex-col overflow-y-auto">
         <p className="text-xs font-bold uppercase tracking-widest text-navy mb-4">{t('nearbyBooths')}</p>
         
-        <div className="space-y-4">
+        <div aria-label={t('nearbyBoothsList')} className="space-y-4">
           {MOCK_BOOTHS.map(booth => {
             const isSelected = selectedBooth?.id === booth.id;
             return (
-              <div 
+              <div
                 key={booth.id} 
                 onClick={() => setSelectedBooth(booth)}
-                className={`cursor-pointer rounded-xl border p-4 transition-all ${
+                onKeyDown={(event) => {
+                  if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    setSelectedBooth(booth);
+                  }
+                }}
+                role="button"
+                tabIndex={0}
+                aria-pressed={isSelected}
+                aria-label={`${t('selectBooth')}: ${t(booth.nameKey) !== booth.nameKey ? t(booth.nameKey) : booth.name}`}
+                className={`w-full cursor-pointer rounded-xl border p-4 text-left transition-all ${
                   isSelected ? 'border-saffron bg-saffron/5 shadow-md' : 'border-navy/10 hover:border-navy/30'
                 }`}
               >

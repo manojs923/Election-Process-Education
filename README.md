@@ -1,81 +1,90 @@
 # Voter Education AI
 
-## 📌 Project Overview
-The **Voter Education AI** is a multilingual, interactive web application built for Indian citizens. It acts as an AI-powered guide that simplifies the electoral process, making it accessible to first-time voters, experienced voters, senior citizens, and those needing accessibility support.
+## Project Overview
+Voter Education AI is a multilingual web application that helps Indian citizens understand the election process in a simple, non-partisan, and accessible way. It is designed for first-time voters, experienced voters, senior citizens, and voters who need accessibility support.
 
-### Chosen Vertical
-**Voter Education / Civic Engagement** 
-(Empowering citizens through accessible, non-partisan electoral information).
+## Chosen Vertical
+The chosen vertical for this project is **Civic Tech / Voter Education**, specifically focusing on providing an inclusive, multilingual, and personalized election guide for all demographics of citizens.
 
-## 🚀 Approach & Logic
-The core logic revolves around **Contextual AI Personalization**. Instead of a one-size-fits-all chatbot, the system utilizes a global `ProfileContext` to dynamically inject tailored system instructions into the Gemini 2.0 Flash API:
-- **First-Time Voters**: Receives step-by-step, simple explanations from scratch.
-- **Experienced Voters**: Skips basics, highlighting only recent changes (e.g., M3 EVMs, 7-second VVPAT).
-- **Senior Citizens**: Automatically prioritizes Form 12D (home voting) and priority queue privileges.
-- **Accessibility Needs**: Instantly highlights wheelchair ramps, Braille EVMs, and companion voting rules.
+## Problem Statement Alignment
+The project focuses on civic access and election literacy. It helps users:
+- understand voter ID and document requirements
+- learn booth procedures before election day
+- review a clear election timeline
+- find a nearby polling booth
+- access guidance in multiple Indian languages
+- receive tailored help based on their voter profile
 
-### Key Features
-1. **AI Voter Expert (Gemini 2.0 Flash)**: A non-partisan chatbot that answers election queries in 6 regional languages.
-2. **Interactive Election Timeline**: A dynamic timeline detailing phases from election announcement to result declaration.
-3. **Polling Booth Locator**: Integrates with Google Maps to find nearby polling stations and estimate wait times.
-4. **Multilingual Support**: Real-time language switching (Hindi, English, Tamil, Telugu, Bengali, Kannada) for inclusive access.
+## Key Features
+1. AI voter assistant powered by Gemini for election-process Q&A
+2. Profile-aware guidance for first-time, experienced, senior, and accessibility-focused voters
+3. Real-time language switching across 6 languages
+4. Interactive election timeline
+5. Polling booth walkthrough and booth finder
+6. Firebase-backed analytics, auth, and chat persistence support
 
-## 🛠️ How It Works
-1. **Entry Screen**: The user selects their voter profile (First-time, Senior, etc.) and preferred language.
-2. **Context Injection**: The application state maps this profile to a highly specific Gemini `systemInstruction`.
-3. **Chat & Explore**: 
-   - The user asks a question (e.g., "Can I vote from home?").
-   - The prompt is sanitized and sent to the Gemini API, strictly bound by a non-partisan mandate.
-   - The AI returns a localized, context-aware response based on the exact needs of the user.
+## Google Services Used
+- Gemini via the Google GenAI SDK
+- Firebase Authentication
+- Firebase Firestore
+- Firebase Storage
+- Firebase Analytics
+- Google Cloud Run
+- Google Cloud Build
 
-## 🧠 Assumptions Made
-- Users have access to a device with a modern web browser.
-- The Gemini API key (`VITE_GEMINI_API_KEY`) and Google Maps API key (`VITE_GOOGLE_MAPS_KEY`) are provided in the `.env` file for API integration.
-- The application assumes users want strictly non-partisan, official ECI (Election Commission of India) information, as the AI is explicitly instructed to refuse political opinions.
+## How It Works
+1. The user selects a voter profile and preferred language.
+2. The app loads a voter-specific guidance mode.
+3. The assistant uses profile-aware instructions for safer, more relevant replies.
+4. The UI and quick prompts adapt to the selected language.
+5. Firebase can persist chat history and analytics when configured.
 
-## 💻 Tech Stack
-- **Frontend**: React.js (Vite), Tailwind CSS
-- **AI Integration**: Google GenAI SDK (Gemini 2.0 Flash)
-- **Maps**: Google Maps JS API
-- **Backend/Storage**: Firebase (Auth, Firestore, Storage)
-- **Deployment**: Google Cloud Run & Cloud Build
+## Accessibility Notes
+The app is built with:
+- keyboard-focusable controls
+- semantic form labels
+- live regions for chat updates
+- visible focus states
+- profile-specific accessibility guidance for polling support
 
-## 🤖 AI Tool Usage Documentation (Submission Essentials)
+## Assumptions Made
+1. **User Environment**: Users have basic internet connectivity. For offline edge cases, users can rely on previously cached fallback responses.
+2. **Localization**: The chosen six languages (English, Hindi, Tamil, Telugu, Bengali, Kannada) cover a significant portion of the target demographic.
+3. **Hardware Accessibility**: Screen readers and assistive technologies are properly supported by the operating system of the user.
+4. **Google Services Integration**: The cloud environment (Cloud Run, Firebase) has sufficient quota and network access to connect with the Gemini AI model.
 
-### 1. Which tools were used & Why they were selected
-- **Anti-Gravity (Agentic IDE)**: Used as the primary pair-programming agent to orchestrate complex architectural changes, write tests, and resolve tricky styling and accessibility bugs automatically.
-- **Gemini (2.0 Flash)**: Integrated directly into the app for the core conversational AI logic, chosen for its fast inference and deep understanding of complex system instructions.
-- **Firebase**: Selected for robust persistent user data, conversation history tracking, and asset storage (Firestore, Auth, Storage).
-- **Cloud Run / Google Cloud**: Selected as the primary hosting and containerization platform to ensure a scalable and reliable production deployment.
+## Security Notes
+- Secrets are expected through environment variables and should not be committed to source control.
+- User prompts are sanitized before being sent to the AI layer.
+- The assistant is explicitly instructed not to provide partisan political advice.
 
-### 2. How prompts evolved
-Initially, prompts for the Gemini API integration were generic (e.g., "Answer voter questions"). However, this led to overly verbose or non-specific answers. The prompts evolved into a **Contextual AI Personalization** system. A dynamic global state (`ProfileContext`) was built to inject highly constrained `systemInstruction`s based on user demographics. Prompts were refined to include strict negative constraints (e.g., "Never skip any step", "Do NOT explain what EVM is from scratch") and mandatory inclusion facts (e.g., "ALWAYS say YES, all booths are mandated to have ramps") to guarantee deterministic, safe, and accurate responses.
+## Tech Stack
+- Frontend: React, Vite, Tailwind CSS
+- AI: Gemini 2.5 Flash
+- Maps: Leaflet with OpenStreetMap tiles, plus Google Maps directions links
+- Backend services: Firebase
+- Deployment: Docker, Cloud Build, Cloud Run
 
-### 3. What GenAI handled vs what humans designed
-- **GenAI Handled**: 
-  - Real-time generation of conversational, non-partisan responses to user queries via the Gemini API.
-  - Rapid scaffolding of unit tests (Vitest, React Testing Library) to maximize test coverage.
-  - Automated refinement of accessibility contrast ratios and semantic ARIA HTML attributes.
-- **Humans Designed**:
-  - The application architecture, responsive UI/UX design, and component hierarchy.
-  - The rigid context framework, personas, and safety rules that securely guide the Gemini API.
-  - The deep integration logic tying together React Contexts, Firebase persistent storage, and the Google Maps component.
+## Live Links
+- GitHub: https://github.com/manojs923/Election-Process-Education
+- Cloud Run: https://election-process-education-342812532739.asia-south1.run.app
 
----
-*Developed for the Google Hackathon Challenge.*
+## Local Setup
+1. Clone the repository.
+2. Run `npm install`.
+3. Copy `.env.example` to `.env`.
+4. Fill in the required Gemini, Firebase, and optional Maps values.
+5. Run `npm run dev`.
+6. Run `npm run test`.
 
-## 🔗 Live Demo
-[Add your Cloud Run URL here after deployment]
-
-## 📦 Setup Instructions
-1. Clone the repo
-2. Run `npm install`
-3. Add `.env` file with:
-   ```env
-   VITE_GEMINI_API_KEY=your_key
-   VITE_GOOGLE_MAPS_KEY=your_key
-   VITE_FIREBASE_API_KEY=your_key
-   # Add other Firebase config keys as needed
-   ```
-4. Run `npm run dev`
-5. Run `npm run test` for tests
+## Deployment Notes
+The included `cloudbuild.yaml` and `Dockerfile` support Cloud Run deployment. For production builds, provide these substitutions in Cloud Build:
+- `_GEMINI_KEY`
+- `_GOOGLE_MAPS_KEY`
+- `_FIREBASE_API_KEY`
+- `_FIREBASE_AUTH_DOMAIN`
+- `_FIREBASE_PROJECT_ID`
+- `_FIREBASE_STORAGE_BUCKET`
+- `_FIREBASE_MESSAGING_SENDER_ID`
+- `_FIREBASE_APP_ID`
+- `_FIREBASE_MEASUREMENT_ID`

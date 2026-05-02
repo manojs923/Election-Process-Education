@@ -1,11 +1,12 @@
-import { useMemo } from 'react';
+import { Suspense, lazy, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
-import ChatAssistant from '../components/ChatAssistant';
-import Timeline from '../components/Timeline';
-import PollingBoothMap from '../components/PollingBoothMap';
-import FindBooth from '../components/FindBooth';
 import { useProfile } from '../contexts/ProfileContext';
 import { useLanguage } from '../contexts/LanguageContext';
+
+const ChatAssistant = lazy(() => import('../components/ChatAssistant'));
+const Timeline = lazy(() => import('../components/Timeline'));
+const PollingBoothMap = lazy(() => import('../components/PollingBoothMap'));
+const FindBooth = lazy(() => import('../components/FindBooth'));
 
 const PROFILE_CONTENT = {
   'first-time': {
@@ -87,6 +88,10 @@ const STATS = [
   { valueKey: 'statEligibleAgeValue', labelKey: 'statEligibleAgeLabel' },
   { valueKey: 'statPerCitizenValue', labelKey: 'statPerCitizenLabel' },
 ];
+
+function DashboardTabFallback() {
+  return <div className="py-12 text-center text-sm font-medium text-navy/60">Loading...</div>;
+}
 
 function DashboardHome({ voterType, onStartLearning, onChangeProfile }) {
   const profile = PROFILE_CONTENT[voterType] || PROFILE_CONTENT['first-time'];
@@ -182,33 +187,41 @@ export default function Dashboard({ tab = 'dashboard', userProfile }) {
 
   if (tab === 'assistant') {
     return (
-      <div className="mx-auto w-full max-w-6xl">
-        <ChatAssistant isFullScreen={true} />
-      </div>
+      <Suspense fallback={<DashboardTabFallback />}>
+        <div className="mx-auto w-full max-w-6xl">
+          <ChatAssistant isFullScreen={true} />
+        </div>
+      </Suspense>
     );
   }
 
   if (tab === 'timeline') {
     return (
-      <div className="mx-auto w-full max-w-6xl">
-        <Timeline />
-      </div>
+      <Suspense fallback={<DashboardTabFallback />}>
+        <div className="mx-auto w-full max-w-6xl">
+          <Timeline />
+        </div>
+      </Suspense>
     );
   }
 
   if (tab === 'map') {
     return (
-      <div className="mx-auto w-full max-w-6xl">
-        <PollingBoothMap />
-      </div>
+      <Suspense fallback={<DashboardTabFallback />}>
+        <div className="mx-auto w-full max-w-6xl">
+          <PollingBoothMap />
+        </div>
+      </Suspense>
     );
   }
 
   if (tab === 'booth') {
     return (
-      <div className="mx-auto w-full max-w-6xl">
-        <FindBooth />
-      </div>
+      <Suspense fallback={<DashboardTabFallback />}>
+        <div className="mx-auto w-full max-w-6xl">
+          <FindBooth />
+        </div>
+      </Suspense>
     );
   }
 

@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import Dashboard from '../pages/Dashboard';
 import { useEffect } from 'react';
@@ -53,24 +53,24 @@ describe('Dashboard Component', () => {
     expect(screen.getByText(/What To Do Today/i)).toBeInTheDocument();
   });
 
-  it('renders Assistant tab when selected', () => {
+  it('renders Assistant tab when selected', async () => {
     renderWithProviders(<Dashboard tab="assistant" userProfile={mockUserProfile} />);
-    expect(screen.getByTestId('assistant-mock')).toBeInTheDocument();
+    expect(await screen.findByTestId('assistant-mock')).toBeInTheDocument();
   });
 
-  it('renders Timeline tab when selected', () => {
+  it('renders Timeline tab when selected', async () => {
     renderWithProviders(<Dashboard tab="timeline" userProfile={mockUserProfile} />);
-    expect(screen.getByTestId('timeline-mock')).toBeInTheDocument();
+    expect(await screen.findByTestId('timeline-mock')).toBeInTheDocument();
   });
 
-  it('renders Polling Map tab when selected', () => {
+  it('renders Polling Map tab when selected', async () => {
     renderWithProviders(<Dashboard tab="map" userProfile={mockUserProfile} />);
-    expect(screen.getByTestId('map-mock')).toBeInTheDocument();
+    expect(await screen.findByTestId('map-mock')).toBeInTheDocument();
   });
 
-  it('renders Find Booth tab when selected', () => {
+  it('renders Find Booth tab when selected', async () => {
     renderWithProviders(<Dashboard tab="booth" userProfile={mockUserProfile} />);
-    expect(screen.getByTestId('booth-mock')).toBeInTheDocument();
+    expect(await screen.findByTestId('booth-mock')).toBeInTheDocument();
   });
 
   it('renders translated dashboard content for the selected language', () => {
@@ -78,5 +78,13 @@ describe('Dashboard Component', () => {
     expect(screen.getByText('আজ কী করবেন')).toBeInTheDocument();
     expect(screen.getByText('ভোটার তালিকা দেখুন')).toBeInTheDocument();
     expect(screen.getByText('সকাল ৭টা - সন্ধ্যা ৬টা')).toBeInTheDocument();
+  });
+
+  it('triggers navigation on button clicks', () => {
+    renderWithProviders(<Dashboard userProfile={mockUserProfile} />);
+    const changeProfileBtn = screen.getByRole('button', { name: /Change Profile/i });
+    const startLearningBtn = screen.getByRole('button', { name: /Go to AI Assistant/i });
+    fireEvent.click(changeProfileBtn);
+    fireEvent.click(startLearningBtn);
   });
 });

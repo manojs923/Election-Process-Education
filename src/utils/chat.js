@@ -1,6 +1,7 @@
 import { GoogleGenAI } from '@google/genai';
 import { getTranslation } from './translations';
 import { profileConfig } from '../contexts/ProfileContext';
+import { trackAI } from './firebase';
 
 const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
 
@@ -195,6 +196,8 @@ ${extraContext}`;
     if (!replyText) {
       return fallbackReply;
     }
+
+    trackAI();
 
     return isLikelyWrongLanguage(replyText, language) ? fallbackReply : replyText;
 

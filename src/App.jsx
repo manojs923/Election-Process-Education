@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react';
+import { Suspense, lazy, useEffect, useState } from 'react';
 import { NavLink, Navigate, Route, Routes } from 'react-router-dom';
-import Home from './pages/Home';
-import Dashboard from './pages/Dashboard';
-import Entry from './pages/Entry';
 import { useLanguage } from './contexts/LanguageContext';
 import { useProfile } from './contexts/ProfileContext';
+
+const Dashboard = lazy(() => import('./pages/Dashboard'));
+const Entry = lazy(() => import('./pages/Entry'));
 
 const navItems = [
   { to: '/dashboard', labelKey: 'dashboard' },
@@ -97,8 +97,13 @@ export default function App() {
                 {t(getVoterTypeKey(userProfile))}
               </div>
             ) : null}
-            
-            <select 
+
+            <label htmlFor="language-select" className="sr-only">
+              {t('languageSelector')}
+            </label>
+            <select
+              id="language-select"
+              aria-label={t('languageSelector')}
               value={language}
               onChange={(e) => updateLanguage(e.target.value)}
               className="rounded-full border border-navy/20 bg-white px-3 py-1.5 text-xs font-bold uppercase tracking-widest text-navy transition hover:border-navy/40 outline-none cursor-pointer"
@@ -114,7 +119,7 @@ export default function App() {
         </div>
 
         <div className="mx-auto w-full max-w-7xl px-4 pb-4 md:px-6">
-          <nav className="flex flex-wrap gap-2">
+          <nav aria-label={t('primaryNavigation')} className="flex flex-wrap gap-2">
             {navItems.map((item) => (
               <NavLink
                 key={item.to}
@@ -135,24 +140,26 @@ export default function App() {
       </header>
 
       <main className="mx-auto w-full max-w-7xl px-4 pb-28 pt-8 md:px-6 md:pb-14">
-        <Routes>
-          <Route path="/" element={<Entry userProfile={userProfile} onStart={setUserProfile} />} />
-          <Route path="/entry" element={<Navigate to="/" replace />} />
-          <Route
-            path="/dashboard"
-            element={
-              userProfile ? (
-                <Dashboard userProfile={userProfile} />
-              ) : (
-                <Navigate to="/" replace />
-              )
-            }
-          />
-          <Route path="/assistant" element={userProfile ? <Dashboard tab="assistant" userProfile={userProfile} /> : <Navigate to="/" replace />} />
-          <Route path="/timeline" element={userProfile ? <Dashboard tab="timeline" userProfile={userProfile} /> : <Navigate to="/" replace />} />
-          <Route path="/map" element={userProfile ? <Dashboard tab="map" userProfile={userProfile} /> : <Navigate to="/" replace />} />
-          <Route path="/find-booth" element={userProfile ? <Dashboard tab="booth" userProfile={userProfile} /> : <Navigate to="/" replace />} />
-        </Routes>
+        <Suspense fallback={<div className="py-12 text-center text-sm font-medium text-navy/60">Loading...</div>}>
+          <Routes>
+            <Route path="/" element={<Entry userProfile={userProfile} onStart={setUserProfile} />} />
+            <Route path="/entry" element={<Navigate to="/" replace />} />
+            <Route
+              path="/dashboard"
+              element={
+                userProfile ? (
+                  <Dashboard userProfile={userProfile} />
+                ) : (
+                  <Navigate to="/" replace />
+                )
+              }
+            />
+            <Route path="/assistant" element={userProfile ? <Dashboard tab="assistant" userProfile={userProfile} /> : <Navigate to="/" replace />} />
+            <Route path="/timeline" element={userProfile ? <Dashboard tab="timeline" userProfile={userProfile} /> : <Navigate to="/" replace />} />
+            <Route path="/map" element={userProfile ? <Dashboard tab="map" userProfile={userProfile} /> : <Navigate to="/" replace />} />
+            <Route path="/find-booth" element={userProfile ? <Dashboard tab="booth" userProfile={userProfile} /> : <Navigate to="/" replace />} />
+          </Routes>
+        </Suspense>
       </main>
     </div>
   );

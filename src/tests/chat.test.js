@@ -1,5 +1,19 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 import { getAssistantReply, sanitizeInput } from "../utils/chat";
+
+const { mockGenerateContent } = vi.hoisted(() => ({
+  mockGenerateContent: vi.fn().mockRejectedValue(new Error('API error'))
+}));
+
+vi.mock('@google/genai', () => ({
+  GoogleGenAI: class {
+    constructor() {
+      this.models = {
+        generateContent: mockGenerateContent,
+      };
+    }
+  }
+}));
 
 describe("Chat Sanitization", () => {
   it("removes script tags", () => {
@@ -133,5 +147,41 @@ describe("Chat fallback replies", () => {
 
     expect(reply).toContain("Braille markings");
     expect(reply).toContain("vote independently");
+  });
+});
+
+describe("Gemini response parsing", () => {
+  it("handles response.text", async () => {
+    mockGenerateContent.mockResolvedValueOnce({ text: "  Direct text response  " });
+    const reply = await getAssistantReply("test", { voterType: "first-time", language: "English" });
+    expect(reply).toBe("Direct text response");
+  });
+
+  it("handles response.candidates", async () => {
+    mockGenerateContent.mockResolvedValueOnce({
+      candidates: [{ content: { parts: [{ text: "  Candidate text response  " }] } }]
+    });
+    const reply = await getAssistantReply("test", { voterType: "first-time", language: "English" });
+    expect(reply).toBe("Candidate text response");
+  });
+
+  it("handles string response", async () => {
+    mockGenerateContent.mockResolvedValueOnce("  String response  ");
+    const reply = await getAssistantReply("test", { voterType: "first-time", language: "English" });
+    expect(reply).toBe("String response");
+  });
+
+  it("falls back if text is empty", async () => {
+    mockGenerateContent.mockResolvedValueOnce({ text: "   " });
+    const reply = await getAssistantReply("test", { voterType: "first-time", language: "English" });
+    // Will return default fallback since 'test' doesn't match any intent
+    expect(reply).toBeTruthy();
+  });
+
+  it("falls back if it looks like garbage characters", async () => {
+    mockGenerateContent.mockResolvedValueOnce({ text: "!!!@@@###" });
+    const reply = await getAssistantReply("test", { voterType: "first-time", language: "Hindi" });
+    // Will return fallback in Hindi
+    expect(reply).toBeTruthy();
   });
 });

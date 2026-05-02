@@ -41,13 +41,11 @@ if (firebaseConfig.apiKey && firebaseConfig.apiKey !== 'demo_key') {
     // Initialize Storage
     storage = getStorage(app);
     
-    console.log('Firebase Services Initialized (Auth, Analytics, Firestore, Storage)');
-    console.info("Firestore + Auth + Analytics + Storage initialized");
   } catch (err) {
     console.error('Firebase initialization error', err);
   }
 } else {
-  console.log('Firebase running in DEMO mode (Services mocked)');
+  console.info('Firebase running in demo mode.');
 }
 
 export const trackRoute = () => {

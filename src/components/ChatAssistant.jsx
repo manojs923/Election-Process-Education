@@ -120,6 +120,11 @@ export default function ChatAssistant({ isFullScreen = true }) {
         <div className="flex flex-col rounded-2xl border border-navy/10 bg-white overflow-hidden shadow-inner">
           <div
             ref={messageListRef}
+            role="log"
+            aria-live="polite"
+            aria-relevant="additions text"
+            aria-busy={isTyping}
+            aria-label={t('messageHistory')}
             className={`flex flex-col gap-4 overflow-y-auto px-4 py-6 ${isFullScreen ? 'flex-1 max-h-[55vh]' : 'max-h-[21rem]'} bg-[#f8f9fc]`}
           >
             {messages.map((message, index) => (
@@ -135,7 +140,11 @@ export default function ChatAssistant({ isFullScreen = true }) {
               </div>
             ))}
             {isTyping ? (
-              <div className="max-w-[85%] rounded-[1.5rem] rounded-tl-sm bg-white border border-navy/10 px-5 py-4 text-sm text-navy/60 shadow-sm">
+              <div
+                role="status"
+                aria-live="polite"
+                className="max-w-[85%] rounded-[1.5rem] rounded-tl-sm bg-white border border-navy/10 px-5 py-4 text-sm text-navy/60 shadow-sm"
+              >
                 <div className="flex items-center gap-2">
                   <span className="font-medium">{t('thinking')}</span>
                   <span className="thinking-dots">
@@ -150,7 +159,12 @@ export default function ChatAssistant({ isFullScreen = true }) {
 
           <div className="mt-auto border-t border-navy/10 p-4 bg-white">
             <div className="flex gap-3">
+              <label htmlFor="chat-question-input" className="sr-only">
+                {t('questionInput')}
+              </label>
               <input
+                id="chat-question-input"
+                aria-label={t('questionInput')}
                 value={input}
                 onChange={(event) => setInput(event.target.value)}
                 onKeyDown={(event) => {

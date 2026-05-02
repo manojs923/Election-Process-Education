@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import App from '../App';
 import { describe, it, expect, vi } from 'vitest';
@@ -41,5 +41,35 @@ describe('App Component', () => {
     expect(screen.getByText('AI Assistant')).toBeInTheDocument();
     expect(screen.getByText('Timeline')).toBeInTheDocument();
   });
-});
 
+  it('exposes accessible labels for navigation and language selection', () => {
+    render(
+      <ProfileProvider>
+        <LanguageProvider>
+          <MemoryRouter>
+            <App />
+          </MemoryRouter>
+        </LanguageProvider>
+      </ProfileProvider>
+    );
+
+    expect(screen.getByRole('navigation', { name: 'Primary navigation' })).toBeInTheDocument();
+    expect(screen.getByRole('combobox', { name: 'Select language' })).toBeInTheDocument();
+  });
+
+  it('updates language selection', () => {
+    render(
+      <ProfileProvider>
+        <LanguageProvider>
+          <MemoryRouter>
+            <App />
+          </MemoryRouter>
+        </LanguageProvider>
+      </ProfileProvider>
+    );
+
+    const select = screen.getByRole('combobox', { name: 'Select language' });
+    fireEvent.change(select, { target: { value: 'Hindi' } });
+    expect(select.value).toBe('Hindi');
+  });
+});
